@@ -152,36 +152,303 @@ La microscopie confocale est une technique d'imagerie avancée qui permet l'obte
 
 \section{Hypothèses}
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[scale=0.6]{res_vs_pinhole.png}
-  \caption{test}
-  \label{respin}
-\end{figure}
+Afin de prédire le comportement de la résolution axiale en fonction des différents paramètres physiques du système, un modèle de calcul ainsi qu'un programme python a été utilisé. Ces derniers sont présentés en annexe. Le programme python utilise d'abord la librairie numpy afin de définir des fonctions qui génèrent des matrices de translation ou de lentille mince. Ensuite, une fonction est créée pour calculer la résolution axiale en fonction de la largeur du sténopé, de la distance focale ainsi que de la distance séparant les lentilles, tel que décrit dans le modèle de calcul. Dans cette fonction, sympy est utilisé pour effectuer la résolution symbolique de la multiplication matricielle et des équations autant algébriques que matricielle. À la fin de cette fonction, les valeurs numériques sont substituées pour avoir une valeur numérique de résolution. Le programme utilise enfin matplotlib afin de de visualiser le résultat de cette fonction pour des plages de paramètres.
+
+Le graphique présenté en figure \ref{respin} démontre la variation de la résolution axiale pour une plage de diamètre de sténopé et ce, pour cinq valeurs différentes de longueur focale.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.6]{res_vs_focal.png}
-  \caption{test}
+  \includegraphics[scale=0.7]{res_vs_pinhole.png}
+  \caption{Graphique de $\delta_{z}$ en fonction de $d$ pour différentes valeurs de $f$.}
+  \label{respin}
+\end{figure}
+''
+L'hypotèse présentée par le modèle de calcul est que la variation de $d$ fait augmenter linéairement la résolution axiale. Ensuite, la figure \ref{resfoc} montre la variation de la résolution axiale pour une plage de longueur focale des deux lentilles, pour quatres valeurs différentes de diamètre de sténopé.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.7]{res_vs_focal.png}
+  \caption{Graphique de $\delta_{z}$ en fonction de $f$ pour différentes valeurs de $d$.}
   \label{resfoc}
 \end{figure}
 
+Il est donc possible de prédire un comportement quasi-linéaire pour la résolution axiale en fonction de la focale. Ce comportement ne semble toutefois pas valide pour des valeurs de $f$ très petites. Enfin, la figure \ref{resl} présente la résolution axiale en fonction de la distance entre les lentilles pour cinq valeurs différents de focales. 
+
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.6]{res_vs_L.png}
-  \caption{test}
+  \includegraphics[scale=0.7]{res_vs_L.png}
+  \caption{Graphique de $\delta_{z}$ en fonction de $L$ pour différentes valeurs de $f$.}
   \label{resl}
 \end{figure}
 
-
+L'hypothèse finale tirée du modèle est donc que la variation de $L$ n'a pas d'impact sur la résolution. 
 
 \section{Annexes}
 
-\subsection{Modèle mathématique pour la simulation}
+\subsection{Modèle mathématique pour le calcul de résolution axiale}
+% TODO : cite
+Soit le schéma de rayons du système optique présenté à la figure \ref{rayons}, qui provient de l'énoncé du laboratoire \textcolor{red}{\textbf{(CITE!!!)} } : 
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.15]{rayons_pinhole.png}
+  \caption{Schéma illustrant les rayons passant aux extrémités du sténopé}
+  \label{rayons}
+\end{figure}
 
+Il est possible de mettre le \textit{input plane} (IP) au plan focal, et le \textit{output plane} (OP) au sténopé. Ainsi, il est possible de poser une matrice de transfert $M$ au système de la façon suivante :
+
+\begin{equation}
+  M = M_{t3}M_{f2}M_{t2}M_{f1}M_{t1}
+\end{equation}
+
+où les matrices sont les suivantes :
+
+\begin{itemize}
+\item $M_{t1}$ est la matrice de translation entre le plan focal et la lentille 1
+\item $M_{f1}$ est la matrice de lentille mince de la lentille 2
+\item $M_{t2}$ est la matrice de translation entre les deux lentilles
+\item $M_{f2}$ est la matrice de lentille mince de la lentille 2
+\item $M_{t3}$ est la matrice de translation entre le plan focal et la lentille 1
+\end{itemize}
+
+Une matrice de translation se décrit par :
+
+\begin{equation}
+  M_{t}= 
+  \begin{bmatrix}
+    1 & x \\
+    0 & 1
+  \end{bmatrix}
+\end{equation}
+
+où $x$ est la longueur de la translation selon l'axe optique. Un matrice de lentille mince se décrit par :
+
+\begin{equation}
+  M_{f} = 
+  \begin{bmatrix}
+    1 & 0 \\
+    -\frac{1}{f} & 1
+  \end{bmatrix}
+\end{equation}
+
+où $f$ est la distance focale de la lentille. Soit $r_i$, un rayon de lumière initial au plan focal. Ce dernier se décrit par sa hauteur et par son angle par rapport à l'axe optique $\hat{z}$ :
+
+\begin{equation}
+  r_{i}= 
+  \begin{bmatrix}
+    y_{i} \\
+    \alpha_{i}
+  \end{bmatrix}= 
+  \begin{bmatrix}
+    0 \\
+    \alpha_{i}
+  \end{bmatrix}
+\end{equation}
+
+La hauteur $y_{i}$ est nulle car le rayon de lumière commence sur l'axe optique. Soit aussi $r_{f}$, le rayon final qui arrive au sténopé :
+
+\begin{equation}
+  r_{f}= 
+  \begin{bmatrix}
+    y_{f} \\
+    \alpha_{f}
+  \end{bmatrix}
+\end{equation}
+
+C'est avec la définition de ce rayon final qu'il est possible de développer le modèle pour la résolution axiale $\delta_{z}$. En effet, tel que visible à la figure \ref{rayons}, deux rayons finaux peuvent être dessinés à partir des deux extrémités du sténopé. Ces deux derniers convergent à des plans focaux qui ont une distance différente avec la première lentille. La différence entre ces distances est la résolution axiale recherchée.
+
+Soit le cas 1, où l'on dénote la hauteur du rayon final au sténopé $y_{f1} = d/2$. Ce rayon est illustré en rouge. Il est possible de développer l'équation matricielle suivante :
+
+\begin{align}
+  r_{f1}&= M r_{i1}\label{matrixeq}\\
+  \Rightarrow\begin{bmatrix}
+    \frac{d}{2}  \\
+    \alpha_{f1}
+  \end{bmatrix} &= 
+  M \begin{bmatrix}
+    y_{i1} \\
+    \alpha_{i1}
+  \end{bmatrix}
+\end{align}
+
+L'angle $\alpha_{f1}$ se trouve par trigonométrie :
+
+\begin{equation}
+  \alpha_{f1}= \arctan\left( \frac{\phi_{f_{2}}-d}{2f_{2}} \right)
+\end{equation}
+
+où $\phi$ dénote le diamètre d'une lentille. Il est possible de dénoter la distance inconnue entre le plan focal du cas 1 et la lentille 1 par $z_{1}$. Cette dernière se trouve dans $M_{t1}$, et donc dans $M$. Du coup, à l'aide de la librairie de calcul symbolique \textit{sympy}, il est possible de calculer aisément la matrice de transfert et de résoudre l'équation (\ref{matrixeq}) avec la méthode \texttt{LUSolve}. Le résultat a donc la forme suivante :
+
+\begin{equation}
+  r_{i1}= \begin{bmatrix}
+   y_{i1}(z_{1})  \\
+    \alpha_{i1}(z_{1})
+  \end{bmatrix}
+\end{equation}
+
+Or, on sait que :
+
+\begin{equation}
+  y_{i1}(z_{1})=0
+\end{equation}
+
+La fonction sympy \texttt{solve} permet de résoudre cette équation symboliquement pour $z_{1}$, et après substitution, sa valeur numérique peut être connue.
+
+Ces étapes de résolution se répètent pour le cas 2, où l'on dénote la hauteur du rayon final au sténopé $y_{f2} = -d/2$. Ce rayon est illustré en orange. Son angle se trouve également par trigonométrie :
+
+\begin{equation}
+  \alpha_{f1}= \arctan\left( \frac{\phi_{f_{2}}+d}{2f_{2}} \right)
+\end{equation}
+
+Il est donc possible en résolvant les mêmes équations mais pour le cas 2 d'obtenir $z_{2}$. Enfin, la résolution axiale se trouve ainsi :
+
+\begin{equation}
+  \delta_{z}= |z_{2}-z_{1}|
+\end{equation}
+
+Cette valeur dépend donc de $z$, qui à son tour dépend des paramètres du montage physique.
 
 \subsection{Code source}
+
+\begin{lstlisting}[language=python]
+import numpy as np
+import matplotlib.pyplot as plt
+import sympy as sp
+
+def Mt(d):
+    '''Translation'''
+    M = np.array([[1, d],
+                  [0, 1]])
+    return M
+
+def Ml(f):
+    '''Thin Lens'''
+    M = np.array([[1, 0],
+                  [-1/f, 1]])
+    return M
+
+def res_axial(pinhole, focal, lens_distance):
+    """
+    Calcule la resolution axiale en fonction du diametre du trou, de la focale, et de la distance entre les lentilles.
+
+    Parametres :
+    ------------
+    pinhole : float
+        Diametre du trou en metres.
+    focal : float
+        Longueur focale de la lentille en metres.
+    lens_distance : float
+        Distance entre les lentilles en metres.
+
+    Retour :
+    --------
+    res : expression symbolique
+        La resolution axiale en metres.
+    """
+    f = sp.symbols('f')
+    phi = sp.symbols('phi')
+    d = sp.symbols('d')
+    L = sp.symbols('L')
+    z = sp.symbols('z')
+
+    # formation de la matrice de transfert
+    M = Mt(f)@Ml(f)@Mt(L)@Ml(f)@Mt(z)
+    M_sp = sp.Matrix(M)
+
+    # definition des hauteurs et angles de chaque cote du pinhole
+    yf1 = d/2
+    alphaf1 = -sp.atan((phi-d)/(2*f))
+    
+    yf2 = -d/2
+    alphaf2 = -sp.atan((phi+d)/(2*f))
+
+    # vecteur decrivant le rayon final au pinhole
+    vf1 = sp.Matrix([yf1, alphaf1])
+    vf2 = sp.Matrix([yf2, alphaf2])
+
+    # resolution des systemes matriciels puis de leur 1re 
+    # equation = 0 pour isoler z
+    solve1 = M_sp.LUsolve(vf1)
+    z1 = sp.solve(solve1[0], z)
+
+    solve2 = M_sp.LUsolve(vf2)
+    z2 = sp.solve(solve2[0], z)
+
+    # substitution des valeurs numeriques
+    values = {f:focal, phi:25.4e-3, d:pinhole, L:lens_distance}
+    res = z2[0].subs(values) - z1[0].subs(values)
+
+    return res
+
+# set de courbes 1
+focals = [25e-3, 35e-3, 50e-3, 100e-3, 150e-3]
+pinhole_sizes = np.linspace(0, 150e-6, 100)
+L = lambda f: f
+
+plt.figure()
+
+# Tracer une courbe pour chaque focale
+for f in focals:
+    res_values = [res_axial(d, f, L(f)) * 1e3 for d in pinhole_sizes]
+    plt.plot(pinhole_sizes * 1e6, res_values, label=f'f = {f*1e3:.0f} mm')
+
+# Parametres d'affichage
+plt.xlabel("Diametre du stenope d (micro m)")
+plt.ylabel("Resolution axiale delta z (mm)")
+plt.legend()
+plt.grid(True)
+plt.title("Resolution axiale en fonction de la taille du stenope (dz(d))")
+plt.tight_layout()
+plt.savefig("res_vs_pinhole.png")
+plt.show()
+plt.clf()
+
+# set de courbes 2
+pinhole_sizes = [50e-6, 75e-6, 100e-6, 150e-6]
+focals = np.linspace(1e-6, 150e-3, 100)
+L = lambda f: f  # si L(f) appele, L = f
+
+plt.figure()
+
+# Tracer une courbe pour chaque taille de stenope
+for pinhole in pinhole_sizes:
+    res_values = [res_axial(pinhole, f, L(f)) * 1e3 for f in focals]
+    plt.plot(focals * 1e3, res_values, label=f'd = {pinhole*1e6:.0f} micro m')
+
+# Parametres d'affichage
+plt.xlabel("Focale des lentilles f (mm)")
+plt.ylabel("Resolution axiale dz (mm)")
+plt.legend()
+plt.grid(True)
+plt.title("Resolution axiale en fonction de la focale des lentilles (dz(f))")
+plt.tight_layout()
+plt.savefig("res_vs_focal.png")
+plt.show()
+plt.clf()
+
+# set de courbes 3
+pinhole = 75e-6  # 75 micro m
+focals = [25e-3, 35e-3, 50e-3, 100e-3, 150e-3]  # en metres
+lens_distances = np.linspace(0, 150e-3, 100)  # en metres
+
+plt.figure()
+
+# Tracer une courbe pour chaque taille de focale
+for f in focals:
+    res_values = [res_axial(pinhole, f, L) * 1e3 for L in lens_distances]
+    plt.plot(lens_distances * 1e3, res_values, label=f'f = {f*1e3:.0f} mm')
+
+# Parametres d'affichage
+plt.xlabel("Distance entre les lentilles L (mm)")
+plt.ylabel("Resolution axiale dz (mm)")
+plt.legend()
+plt.grid(True)
+plt.title("Resolution axiale en fonction de la distance entre les lentilles (dz(L))")
+plt.tight_layout()
+plt.savefig("res_vs_L.png")
+plt.show()
+plt.clf()
+\end{lstlisting}
 
 
 
