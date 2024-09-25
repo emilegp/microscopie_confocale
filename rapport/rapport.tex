@@ -142,19 +142,49 @@ Polytechnique Montréal\\}
 
 \section{Théorie}
 \subsection{Microsopie Confocale}
-La microscopie confocale est une technique d'imagerie avancée qui permet l'obtention d'images à hautes résolution, en éliminant la lumière hors-focus, particulièrement ceux à l'extérieur du plan focal. Le fonctionnement de cette technologie repose sur les principes d'illumination et de détection limités à un certain volume par la présence d'un simple trou, nommé sténopé \textcolor{red}{(Source 1)}. En d'autres termes, une source de lumière, telle qu'un laser, est émise à travers le système, celle-ci est, ensuite, dirigée vers des miroirs dichroïques qui permettent la sélection de certaines longueurs d'onde réfléchies \textcolor{red}{(Source 2)}. Une fois redirigée, la lumière réfléchie par les miroirs passe à travers une première lentille, concentrant ainsi le faisceau en un point précis, soit l'objet. Une fois arrivée à l'échantillon, une partie de ce faisceau est réfléchi par l'objet et, par le fait même, retransmis vers les miroirs. La lumière provenant de l'échantillon est alors redirigée vers le sténopé, situé derrière une deuxième lentille qui permet la convergence du rayon lumineux. Celle-ci traverse, ensuite, le sténopé, petite ouverture permettant d'éliminer les faisceaux ne provenant pas du plan focal, et atteint le détecteur. Puisque l'oeil nu n'est pas en mesure de traiter l'image résultante, le détecteur reconstruit indirectement l'image à l'aide de balayages de l'échantillon. De cette manière, le faisceau se déplace, selon les différentes positions axiales, sur l'objet afin d'obtenir une image complète \textcolor{red}{(Source 3)}.
+La microscopie confocale est une technique d'imagerie avancée qui permet l'obtention d'images à hautes résolution, en éliminant la lumière hors-focus, particulièrement ceux à l'extérieur du plan focal. Le fonctionnement de cette technologie repose sur les principes d'illumination et de détection limités à un certain volume par la présence d'un simple trou, nommé sténopé \textcolor{red}{(Source 1)}. En d'autres termes, ces microscopes fonctionnent de la même manière que ceux conventionnels à l'exception de ce trou. De cette manière, une source de lumière, telle qu'un laser, est émise à travers le système, et celle-ci est, ensuite, dirigée vers des miroirs dichroïques qui permettent la sélection de certaines longueurs d'onde réfléchies et la réjection des autres \textcolor{red}{(Source 2)}. Une fois redirigée par ces miroirs, la lumière réfléchie passe à travers une première lentille, concentrant ainsi le faisceau en un point précis, soit l'objet. Arrivée à l'échantillon, une partie de ce faisceau est réfléchi par l'objet et, par le fait même, retransmis dans le système optique. La lumière transmise par l'échantillon se dirige, donc, à nouveau vers les miroirs qui la renvoie vers le sténopé, situé derrière une deuxième lentille permettant, elle-aussi, la convergence du rayon lumineux. Le rayon traverse, ensuite, le sténopé, et atteint le détecteur. Puisque l'oeil nu n'est pas en mesure de traiter l'image résultante, le détecteur reconstruit indirectement l'image à l'aide de balayages de l'échantillon. De ce fait, le faisceau se déplace, selon les différentes positions axiales, sur l'objet afin d'obtenir une image complète \textcolor{red}{(Source 3)}.
 
 % Source 1 : chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://sfa.univ-poitiers.fr/imageup/wp-content/uploads/sites/31/2014/06/Principe_Confocal-2.pdf
 % Source 2 : https://chineselens.com/fr/dichroic-mirrors/
 % Source 3 : Procédurier
 
+\subsection{Sténopé}
+Le sténopé correspond à une petite ouverture permettant d'éliminer les faisceaux ne provenant pas du plan focal. En d'autres termes, la lumière entrante est filtrée par l'ouverture, de sorte que l'aberration causée par la divergence des rayons du système, et ne laisse passer qu'un rayon pour chaque point de l'objet. Ainsi, l'ajout de cet outil permet d'améliorer la résolution axiale, en augmentant la netteté des images obtenues.
+
 \subsection{Résolution axiale}
-La résolution axiale, en microscopie confocale, correspond à la capacité d'un système à distinguer deux points situés à différentes profondeurs sur l'axe optique. En d'autres termes, elle correspond à la distance minimale à laquelle ces deux points peuvent être distingués comme distincts \textcolor{red}{(Source 4)}.
+La résolution axiale, en microscopie confocale, correspond à la capacité d'un système à distinguer deux points situés à différentes profondeurs sur l'axe optique. En d'autres termes, elle correspond à la distance minimale à laquelle ces deux points peuvent être distingués comme distincts \textcolor{red}{(Source 4)}. Cette donnée dépend, généralement, de quelques paramètres tels que la longueur d'onde de la lumière utilisée, de l'ouverture numérique du sténopé, et du système optique \textcolor{red}{(Source 5)}. Pour cette expérience, les paramètres d'ouverture et de système optique sont considérés pour déterminer la résolution.
 
 % Source 4 : https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4379090/#:~:text=Theoretically%2C%20the%20lateral%20and%20axial,be%20distinguished%20as%20distinct%20objects.
 
+ % Source 5 : 
+ %@incollection{jonkman200318,
+  %title={[18] Resolution in optical microscopy},
+  %author={Jonkman, James EN and Swoger, Jim and Kress, Holger and Rohrbach, Alexander and Stelzer, Ernst HK},
+  %booktitle={Methods in enzymology},
+  %volume={360},
+  %pages={416--446},
+  %year={2003},
+  %publisher={Elsevier}
+%}
+
+\subsection{Lentilles convergentes}
+Les lentilles optiques ont pour fonction de concentrer ou de disperser les rayons qui les traversent à l'aide du principe de réfraction, soit la redirection des faisceaux lumineux. Dans le cas des lentilles convergentes, les rayons de lumière sont redirigés de sorte que ceux-ci se concentrent en un point spécifique, appelé le point focal \textcolor{red}{(Source 6)}. Ce point est, généralement, donné par un paramètre : la distance focale. En effet, la distance focale correspond à la longueur entre le centre de la lentille et le point focal, soit l'endroit où convergent les faisceaux. Ainsi, une courte distance, comme dans le cas de cette expérience, place l'image à proximité de la lentille elle-même.
+
+En microscopie confocale, les lentilles convergentes sont utilisées afin de concentrer la lumière et d'agrandir l'image des objets petits. Ainsi, le point focal est utilisé pour sélectionner un plan spécifique de l'échantillon à observer, et la lumière réfléchie par l'objet, soit le point focal, est filtrée par le sténopé, ce qui permet la formation nette des images \textcolor{red}{(Source 7)}.
+
+% Source 6 : https://www.khanacademy.org/science/in-in-class-12th-physics-india/in-in-ray-optics-and-optical-instruments/in-in-refraction-in-thin-lenses/a/thin-lens-sign-conventions#:~:text=If%20both%20sides%20of%20the,point%2C%20called%20the%20focal%20point.
+
+% Source 7 : https://www.britannica.com/technology/lens-optics
+
+\subsection{Approximation des rayons}
+L'approximation des rayons consiste à supposer que la lumière se déplace, dans un milieu homogène, en ligne droite perpendiculairement au front d'ondes \textcolor{red}{(Source 8)}. En d'autres termes, avec cette approximation, l'onde, se déplaçant à travers une interface, est considérée comme une ligne droite se propageant dans la direction de ses rayons. De cette manière, cette théorie permet à la lumière d'effectuer des réflexions et des réfractions lorsqu'elle entre en contact avec des surfaces \textcolor{red}{(Source 9)}. Cette supposition permet, ainsi, d'utiliser l'optique géométrique pour déterminer le parcours de ces dits faisceaux lumineux. 
+
+% Source 8 : chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://faculty.ksu.edu.sa/sites/default/files/phys_111-_lec-1718-the_nature_of_light_and_the_principles_of_ray_optics.pdf
+% Source 9 : chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://physique.cmaisonneuve.qc.ca/svezina/nyc/note_nyc/NYC_XXI_Chap%202.1a.pdf
+
 \subsection{Modèle mathématique de calcul de résolution}
 Une méthode essentielle pour la résolution de problèmes optiques consiste à la méthode des matrices. Celle-ci repose sur la représentation visuelle des rayons à travers le système optique, qui, dans le cas de cette expérience, provient de l'énoncé du laboratoire \textcolor{red}{(Source 3)}.
+% Source 3 : Procédurier
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.15]{rayons_pinhole.png}
@@ -162,7 +192,7 @@ Une méthode essentielle pour la résolution de problèmes optiques consiste à 
   \label{rayons}
 \end{figure}
 
-À partir de ce schéma, il est possible de mettre le \textit{input plane} (IP), qui correspond à l'entrée des rayons lumineux, au plan focal, et le \textit{output plane} (OP), soit la sortie, au sténopé. Ainsi, il est possible de poser une matrice de transfert $M$ au système de la façon suivante :
+À partir de ce schéma, il est possible de mettre le \textit{input plane} (IP), qui correspond à l'entrée des rayons lumineux, au plan focal, et le \textit{output plane} (OP), soit la sortie de ceux-ci, au sténopé. Ainsi, il est possible de poser une matrice de transfert $M$ au système de la façon suivante :
 
 \begin{equation}
   M = M_{t3}M_{f2}M_{t2}M_{f1}M_{t1}
@@ -253,7 +283,7 @@ où $\phi$ dénote le diamètre d'une lentille. Il est possible de dénoter la d
   \end{bmatrix}
 \end{equation}
 
-Or, on sait que :
+Or, sachant que :
 
 \begin{equation}
   y_{i1}(z_{1})=0
@@ -274,8 +304,6 @@ Il est donc possible en résolvant les mêmes équations mais pour le cas 2 d'ob
 \end{equation}
 
 Cette valeur dépend donc de $z$, qui, à son tour, dépend des paramètres du montage physique.
-
-% Source 3 : Procédurier
 
 \section{Méthodologie}
 
