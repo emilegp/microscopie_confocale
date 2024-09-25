@@ -307,6 +307,35 @@ Cette valeur dépend donc de $z$, qui, à son tour, dépend des paramètres du m
 
 \section{Méthodologie}
 
+\section{Méthodologie}
+
+La méthode utilisée lors de ce laboratoire à pour but de : mesurer l'impact d'un sténopé sur la résolution axiale ($\delta x$) d'un montage optique confocal. Ou en d'autre termes d'étbalir la relation entre la puissance du système et la position d'un objet observé avec et sans sténopé. La figure \ref{montage} présente le montage optique confocal utilisé lors du laboratoire. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.7]{Montage laboratoire 1.png}
+  \caption{Montage optique confocal utilisé lors du laboratoire}
+  \label{montage}
+\end{figure}
+
+Le matériel utilisé dans ce montage est :
+
+\begin{itemize}
+    \item[$-$]  1 source laser et source d’alimentation
+    \item[$-$]  3 miroirs avec vis d’alignement ($M_i$)
+    \item[$-$]  1 cube beam splitter ($BS$)
+    \item[$-$]  2 iris (pour alignement)
+    \item[$-$]  2 lentilles ($f_1 = f_2 = 35 mm, \phi_1 = \phi_1 = 25.4 mm$)
+    \item[$-$]  1 stage de translation (\hat{z})
+    \item[$-$]  1 monture de translation XY (\textit{thorlabs ST1XY-S(/M)})
+    \item[$-$]  1 sténopé ($\phi = 75μm$)
+    \item[$-$]  1 power meter ($PM$)
+\end{itemize}
+
+Dans ce système, l'objet observé ($M_s$) est un miroir. Sa fonction est de réfléchir un rayon émit depuis une source laser, puis filtré en longueur d'onde par des miroir dichroïques ($M1$ et $M2$), vers un puissance-mètre ($PM$). Ce rayon est focalisé une première fois par une lentille ($f_1$) puis redirigée après reflexion vers une autre lentille ($f_2$) afin de mesurer l'impact du déplacement du miroir sur la puissance mesurée. Cette partie du montage correspond au système optique présenté dans la figure \ref{rayons} et peut donc être décrit par les équations développées dans la partie théorie. Le miroir est rendu mobile par une monture de translation et la déviation vers la seconde lentille se fait par l'intermédiare d'un "cube beam splitter" ($BS$). \\
+
+De façon concrête, le but des expériences est de placer le miroir à une position focalisé, où la puissance captée est maximale, puis de le faire bouger selon l'axe de translation du faisceaux. Cette démarche permet de récolter un paquet de données, permettant grâce à une interpolation d'établir la relation entre la puissance et la position du capteur. En répétant ce même protocole deux fois sur des montages similaires, d'abord sans le sénopé, puis avec, les relations établies permettent de comprendre son impact vis-à-vis de la distance focale du système ($\delta x$). 
+
 \section{Hypothèses}
 
 Afin de prédire le comportement de la résolution axiale en fonction des différents paramètres physiques du système, un modèle de calcul ainsi qu'un programme python a été utilisé. Ces derniers sont présentés en annexe. Le programme python utilise d'abord la librairie numpy afin de définir des fonctions qui génèrent des matrices de translation ou de lentille mince. Ensuite, une fonction est créée pour calculer la résolution axiale en fonction de la largeur du sténopé, de la distance focale ainsi que de la distance séparant les lentilles, tel que décrit dans le modèle de calcul. Dans cette fonction, sympy est utilisé pour effectuer la résolution symbolique de la multiplication matricielle et des équations autant algébriques que matricielle. À la fin de cette fonction, les valeurs numériques sont substituées pour avoir une valeur numérique de résolution. Le programme utilise enfin matplotlib afin de de visualiser le résultat de cette fonction pour des plages de paramètres.
