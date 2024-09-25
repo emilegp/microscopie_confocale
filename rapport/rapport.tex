@@ -154,50 +154,7 @@ La résolution axiale, en microscopie confocale, correspond à la capacité d'un
 % Source 4 : https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4379090/#:~:text=Theoretically%2C%20the%20lateral%20and%20axial,be%20distinguished%20as%20distinct%20objects.
 
 \subsection{Modèle mathématique de calcul de résolution}
-Une méthode essentielle pour la résolution de problèmes optiques consiste à la méthode des matrices. Celle-ci repose sur la représentation visuelle des rayons à travers le système optique, qui, dans le cas de cette expérience, provient de l'énoncé du laboratoire \textcolor{red}{(Source 3)}. BLABLABLA
-
-% Source 3 : Procédurier
-
-\section{Méthodologie}
-
-\section{Hypothèses}
-
-Afin de prédire le comportement de la résolution axiale en fonction des différents paramètres physiques du système, un modèle de calcul ainsi qu'un programme python a été utilisé. Ces derniers sont présentés en annexe. Le programme python utilise d'abord la librairie numpy afin de définir des fonctions qui génèrent des matrices de translation ou de lentille mince. Ensuite, une fonction est créée pour calculer la résolution axiale en fonction de la largeur du sténopé, de la distance focale ainsi que de la distance séparant les lentilles, tel que décrit dans le modèle de calcul. Dans cette fonction, sympy est utilisé pour effectuer la résolution symbolique de la multiplication matricielle et des équations autant algébriques que matricielle. À la fin de cette fonction, les valeurs numériques sont substituées pour avoir une valeur numérique de résolution. Le programme utilise enfin matplotlib afin de de visualiser le résultat de cette fonction pour des plages de paramètres.
-
-Le graphique présenté en figure \ref{respin} démontre la variation de la résolution axiale pour une plage de diamètre de sténopé et ce, pour cinq valeurs différentes de longueur focale.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[scale=0.7]{res_vs_pinhole.png}
-  \caption{Graphique de $\delta_{z}$ en fonction de $d$ pour différentes valeurs de $f$.}
-  \label{respin}
-\end{figure}
-''
-L'hypotèse présentée par le modèle de calcul est que la variation de $d$ fait augmenter linéairement la résolution axiale. Ensuite, la figure \ref{resfoc} montre la variation de la résolution axiale pour une plage de longueur focale des deux lentilles, pour quatres valeurs différentes de diamètre de sténopé.
-\begin{figure}[H]
-  \centering
-  \includegraphics[scale=0.7]{res_vs_focal.png}
-  \caption{Graphique de $\delta_{z}$ en fonction de $f$ pour différentes valeurs de $d$.}
-  \label{resfoc}
-\end{figure}
-
-Il est donc possible de prédire un comportement quasi-linéaire pour la résolution axiale en fonction de la focale. Ce comportement ne semble toutefois pas valide pour des valeurs de $f$ très petites. Enfin, la figure \ref{resl} présente la résolution axiale en fonction de la distance entre les lentilles pour cinq valeurs différents de focales. 
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[scale=0.7]{res_vs_L.png}
-  \caption{Graphique de $\delta_{z}$ en fonction de $L$ pour différentes valeurs de $f$.}
-  \label{resl}
-\end{figure}
-
-L'hypothèse finale tirée du modèle est donc que la variation de $L$ n'a pas d'impact sur la résolution. 
-
-\section{Annexes}
-
-\subsection{Modèle mathématique pour le calcul de résolution axiale}
-% TODO : cite
-Soit le schéma de rayons du système optique présenté à la figure \ref{rayons}, qui provient de l'énoncé du laboratoire \textcolor{red}{\textbf{(CITE!!!)} } : 
-
+Une méthode essentielle pour la résolution de problèmes optiques consiste à la méthode des matrices. Celle-ci repose sur la représentation visuelle des rayons à travers le système optique, qui, dans le cas de cette expérience, provient de l'énoncé du laboratoire \textcolor{red}{(Source 3)}.
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.15]{rayons_pinhole.png}
@@ -205,7 +162,7 @@ Soit le schéma de rayons du système optique présenté à la figure \ref{rayon
   \label{rayons}
 \end{figure}
 
-Il est possible de mettre le \textit{input plane} (IP) au plan focal, et le \textit{output plane} (OP) au sténopé. Ainsi, il est possible de poser une matrice de transfert $M$ au système de la façon suivante :
+À partir de ce schéma, il est possible de mettre le \textit{input plane} (IP), qui correspond à l'entrée des rayons lumineux, au plan focal, et le \textit{output plane} (OP), soit la sortie, au sténopé. Ainsi, il est possible de poser une matrice de transfert $M$ au système de la façon suivante :
 
 \begin{equation}
   M = M_{t3}M_{f2}M_{t2}M_{f1}M_{t1}
@@ -316,7 +273,45 @@ Il est donc possible en résolvant les mêmes équations mais pour le cas 2 d'ob
   \delta_{z}= |z_{2}-z_{1}|
 \end{equation}
 
-Cette valeur dépend donc de $z$, qui à son tour dépend des paramètres du montage physique.
+Cette valeur dépend donc de $z$, qui, à son tour, dépend des paramètres du montage physique.
+
+% Source 3 : Procédurier
+
+\section{Méthodologie}
+
+\section{Hypothèses}
+
+Afin de prédire le comportement de la résolution axiale en fonction des différents paramètres physiques du système, un modèle de calcul ainsi qu'un programme python a été utilisé. Ces derniers sont présentés en annexe. Le programme python utilise d'abord la librairie numpy afin de définir des fonctions qui génèrent des matrices de translation ou de lentille mince. Ensuite, une fonction est créée pour calculer la résolution axiale en fonction de la largeur du sténopé, de la distance focale ainsi que de la distance séparant les lentilles, tel que décrit dans le modèle de calcul. Dans cette fonction, sympy est utilisé pour effectuer la résolution symbolique de la multiplication matricielle et des équations autant algébriques que matricielle. À la fin de cette fonction, les valeurs numériques sont substituées pour avoir une valeur numérique de résolution. Le programme utilise enfin matplotlib afin de de visualiser le résultat de cette fonction pour des plages de paramètres.
+
+Le graphique présenté en figure \ref{respin} démontre la variation de la résolution axiale pour une plage de diamètre de sténopé et ce, pour cinq valeurs différentes de longueur focale.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.7]{res_vs_pinhole.png}
+  \caption{Graphique de $\delta_{z}$ en fonction de $d$ pour différentes valeurs de $f$.}
+  \label{respin}
+\end{figure}
+''
+L'hypotèse présentée par le modèle de calcul est que la variation de $d$ fait augmenter linéairement la résolution axiale. Ensuite, la figure \ref{resfoc} montre la variation de la résolution axiale pour une plage de longueur focale des deux lentilles, pour quatres valeurs différentes de diamètre de sténopé.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.7]{res_vs_focal.png}
+  \caption{Graphique de $\delta_{z}$ en fonction de $f$ pour différentes valeurs de $d$.}
+  \label{resfoc}
+\end{figure}
+
+Il est donc possible de prédire un comportement quasi-linéaire pour la résolution axiale en fonction de la focale. Ce comportement ne semble toutefois pas valide pour des valeurs de $f$ très petites. Enfin, la figure \ref{resl} présente la résolution axiale en fonction de la distance entre les lentilles pour cinq valeurs différents de focales. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.7]{res_vs_L.png}
+  \caption{Graphique de $\delta_{z}$ en fonction de $L$ pour différentes valeurs de $f$.}
+  \label{resl}
+\end{figure}
+
+L'hypothèse finale tirée du modèle est donc que la variation de $L$ n'a pas d'impact sur la résolution. 
+
+\section{Annexes}
 
 \subsection{Code source}
 
