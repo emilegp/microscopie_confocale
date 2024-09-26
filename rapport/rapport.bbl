@@ -1,0 +1,71 @@
+\begin{thebibliography}{9}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[de~Poitiers(2024)]{noauthor_principe_nodate}
+Université de~Poitiers.
+\newblock Principe {Microscopie} confocale, 2024.
+\newblock URL
+  \url{https://sfa.univ-poitiers.fr/imageup/wp-content/uploads/sites/31/2014/06/Principe_Confocal-2.pdf}.
+
+\bibitem[{Chineselens}(2021)]{chineselens_comprehensive_2021}
+{Chineselens}.
+\newblock Comprehensive {Guide} to {What} {Is} {Dichroic} {Mirror}, April 2021.
+\newblock URL \url{https://chineselens.com/fr/dichroic-mirrors/}.
+
+\bibitem[Sheehy et~al.(2024)Sheehy, Picot, Nguyen, and
+  Zamani]{sheehy_experience_2024}
+Guillaume Sheehy, Fabien Picot, Tien Nguyen, and Esmat Zamani.
+\newblock Expérience 1 : {Microscopie} {Confocale}, September 2024.
+
+\bibitem[Fouquet et~al.(2015)Fouquet, Gilles, Heck, Dos~Santos, Schwartzmann,
+  Cannaya, Morel, Davidson, Trembleau, and Bolte]{fouquet_improving_2015}
+Coralie Fouquet, Jean-François Gilles, Nicolas Heck, Marc Dos~Santos, Richard
+  Schwartzmann, Vidjeacoumary Cannaya, Marie-Pierre Morel, Robert~Stephen
+  Davidson, Alain Trembleau, and Susanne Bolte.
+\newblock Improving {Axial} {Resolution} in {Confocal} {Microscopy} with {New}
+  {High} {Refractive} {Index} {Mounting} {Media}.
+\newblock \emph{PLoS ONE}, 10\penalty0 (3):\penalty0 e0121096, March 2015.
+\newblock ISSN 1932-6203.
+\newblock \doi{10.1371/journal.pone.0121096}.
+\newblock URL \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4379090/}.
+
+\bibitem[Jonkman et~al.(2003)Jonkman, Swoger, Kress, Rohrbach, and
+  Stelzer]{jonkman_18_2003}
+James E.~N. Jonkman, Jim Swoger, Holger Kress, Alexander Rohrbach, and Ernst
+  H.~K. Stelzer.
+\newblock [18] {Resolution} in optical microscopy.
+\newblock In \emph{Methods in {Enzymology}}, volume 360 of \emph{Biophotonics,
+  {Part} {A}}, pages 416--446. Academic Press, January 2003.
+\newblock \doi{10.1016/S0076-6879(03)60122-9}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/S0076687903601229}.
+
+\bibitem[Academy(2024)]{noauthor_thin_nodate}
+Khan Academy.
+\newblock Thin lens sign conventions, 2024.
+\newblock URL
+  \url{https://www.khanacademy.org/science/in-in-class-12th-physics-india/in-in-ray-optics-and-optical-instruments/in-in-refraction-in-thin-lenses/a/thin-lens-sign-conventions}.
+
+\bibitem[Britannica(2024)]{noauthor_lens_2024}
+Encyclopaedia Britannica.
+\newblock Lens {\textbar} {Meaning}, {Principles}, {Manufacture}, \& {Facts},
+  September 2024.
+\newblock URL \url{https://www.britannica.com/technology/lens-optics}.
+
+\bibitem[Qaid(2024)]{qaid_nature_nodate}
+Saif Qaid.
+\newblock The {Nature} of {Light} and the {Principles} of {Ray} {Optics}, 2024.
+\newblock URL
+  \url{https://faculty.ksu.edu.sa/sites/default/files/phys_111-_lec-1718-the_nature_of_light_and_the_principles_of_ray_optics.pdf}.
+
+\bibitem[Vésina(2024)]{vesina_optique_nodate}
+Simon Vésina.
+\newblock L'optique géométrique, 2024.
+\newblock URL
+  \url{https://physique.cmaisonneuve.qc.ca/svezina/nyc/note_nyc/NYC_XXI_Chap%202.1a.pdf}.
+
+\end{thebibliography}

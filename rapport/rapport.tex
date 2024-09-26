@@ -4,7 +4,7 @@
 \usepackage{graphicx}
 \usepackage{etoolbox}
 \apptocmd{\sloppy}{\hbadness 10000\relax}{}{}
-% \usepackage[numbers]{natbib}
+\usepackage[numbers]{natbib}
 \usepackage[T1]{fontenc}
 \usepackage{ragged2e}
 \usepackage[french]{babel}
@@ -106,7 +106,7 @@
   \textbf{Par :}\\
   Émile \textbf{Guertin-Picard} (2208363)\\
   Laura-Li \textbf{Gilbert} (2204234)\\
-  Tom \textbf{Dessauvages} (???????)\\[3cm]}
+  Tom \textbf{Dessauvages} (2133573)\\[3cm]}
 
 \large{\today\\
 Département de Génie Physique\\
@@ -139,53 +139,89 @@ Polytechnique Montréal\\}
 %----------------------------------------------------
 
 \section{Introduction}
-La microscopie confocale, technique d'imagerie optique avancée, joue un rôle essentiel dans l'exploration des structures microscopiques, offrant la possibilité d'étudier des phénomènes complexes à haute résolution. Reposant sur un principe de filtration de la lumière, cette méthode permet, contrairement à celle conventiionnelles, de reconstruire des images tridimensionnelles avec précision. De cette manière, pour mesurer la performance de ces systèmes avancés, un paramètre important est considéré : la résolution axiale, qui détermine la finesse avec laquelle il est possible de distinguer les structures à observer. Dans le cadre de cette expérience, l'objectif est de mesurer la résolution axiale d'un système optique en mesurant expérimentalement la courbe d'intensité du dit système avec un sténopé, puis sans le sténopé. Les attentes vis-à-vis ce laboratoire sont de permettre à cette équipe d'approfondir leurs connaissances, autant pratiques que théoriques, sur l'optique et le fonctionnement des microscopes. Pour ce faire, un système optique est construit, l'objet imagé est, ensuite, déplacé afin de varier la distance, et les mesures de puissance sont prises pour chaque nouvelle distance, ce qui permettra la création de la courbe désirée. Le document présent revient sur les étapes importantes de l'expérience. Ainsi, afin d'assurer la compréhension, la théorie relative à l'élaboration du modèle est d'abord présentée, puis suivie par la méthodologie utilisée pour réaliser l'expérimentation. Ensuite, dans le but de prédire le comportement de la résolution obtenue, les hypothèses, développées par un programme Python, sont exposées. Finalement, les résultats obtenus lors de l'expérience sont montrés et, par la suite, analysés dans la section discussion.
+La microscopie confocale, technique d'imagerie optique avancée, joue un rôle essentiel dans l'exploration 
+des structures microscopiques, offrant la possibilité d'étudier des phénomènes complexes à haute 
+résolution. Reposant sur un principe de filtration de la lumière, cette méthode permet, contrairement à 
+celle conventionnelles, de reconstruire des images tridimensionnelles avec précision. De cette manière,
+pour mesurer la performance de ces systèmes avancés, un paramètre important est considéré : la résolution
+axiale, qui détermine la finesse avec laquelle il est possible de distinguer les structures à observer. 
+Dans le cadre de cette expérience, l'objectif est de mesurer la résolution axiale d'un système optique 
+en mesurant expérimentalement la courbe d'intensité du dit système avec un sténopé, puis sans le sténopé.
+Les attentes vis-à-vis ce laboratoire sont de permettre à cette équipe d'approfondir leurs connaissances,
+autant pratiques que théoriques, sur l'optique et le fonctionnement des microscopes. Pour ce faire, un
+système optique est construit, l'objet imagé est, ensuite, déplacé afin de varier la distance, et les
+mesures de puissance sont prises pour chaque nouvelle distance, ce qui permettra la création de la courbe
+désirée. Le document présent revient sur les étapes importantes de l'expérience. Ainsi, afin d'assurer
+la compréhension, la théorie relative à l'élaboration du modèle est d'abord présentée, puis suivie par
+la méthodologie utilisée pour réaliser l'expérimentation. Ensuite, dans le but de prédire le
+comportement de la résolution obtenue, les hypothèses, développées par un programme Python, sont
+exposées. Finalement, les résultats obtenus lors de l'expérience sont montrés et, par la suite,
+analysés dans la discussion.
 
 \section{Théorie}
 \subsection{Microsopie Confocale}
-La microscopie confocale est une technique d'imagerie avancée qui permet l'obtention d'images à hautes résolution, en éliminant la lumière hors-focus, particulièrement ceux à l'extérieur du plan focal. Le fonctionnement de cette technologie repose sur les principes d'illumination et de détection limités à un certain volume par la présence d'un simple trou, nommé sténopé \textcolor{red}{(Source 1)}. En d'autres termes, ces microscopes fonctionnent de la même manière que ceux conventionnels à l'exception de ce trou. De cette manière, une source de lumière, telle qu'un laser, est émise à travers le système, et celle-ci est, ensuite, dirigée vers des miroirs dichroïques qui permettent la sélection de certaines longueurs d'onde réfléchies et la réjection des autres \textcolor{red}{(Source 2)}. Une fois redirigée par ces miroirs, la lumière réfléchie passe à travers une première lentille, concentrant ainsi le faisceau en un point précis, soit l'objet. Arrivée à l'échantillon, une partie de ce faisceau est réfléchi par l'objet et, par le fait même, retransmis dans le système optique. La lumière transmise par l'échantillon se dirige, donc, à nouveau vers les miroirs qui la renvoie vers le sténopé, situé derrière une deuxième lentille permettant, elle-aussi, la convergence du rayon lumineux. Le rayon traverse, ensuite, le sténopé, et atteint le détecteur. Puisque l'oeil nu n'est pas en mesure de traiter l'image résultante, le détecteur reconstruit indirectement l'image à l'aide de balayages de l'échantillon. De ce fait, le faisceau se déplace, selon les différentes positions axiales, sur l'objet afin d'obtenir une image complète \textcolor{red}{(Source 3)}.
-
-% Source 1 : chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://sfa.univ-poitiers.fr/imageup/wp-content/uploads/sites/31/2014/06/Principe_Confocal-2.pdf
-% Source 2 : https://chineselens.com/fr/dichroic-mirrors/
-% Source 3 : Procédurier
+La microscopie confocale est une technique d'imagerie avancée qui permet l'obtention d'images à hautes
+résolution, en éliminant la lumière hors-focus, particulièrement à l'extérieur du plan focal. Le 
+fonctionnement de cette technologie repose sur les principes d'illumination et de détection limités à un 
+certain volume par la présence d'un simple trou, nommé sténopé \cite{noauthor_principe_nodate}. En 
+d'autres termes, ces microscopes fonctionnent de la même manière que ceux conventionnels à l'exception de
+ce trou. De cette manière, une source de lumière, telle qu'un laser, est émise à travers le système, et
+celle-ci est, ensuite, dirigée vers des miroirs dichroïques qui permettent la sélection de certaines 
+longueurs d'onde réfléchies et la réjection des autres \cite{chineselens_comprehensive_2021}. Une fois
+redirigée par ces miroirs, la lumière réfléchie passe à travers une première lentille, concentrant ainsi
+le faisceau en un point précis, soit l'objet. Arrivée à l'échantillon, une partie de ce faisceau est
+réfléchi par l'objet et, par le fait même, retransmis dans le système optique. La lumière transmise par
+l'échantillon se dirige, donc, à nouveau vers les miroirs qui la renvoie vers le sténopé, situé derrière
+une deuxième lentille permettant, elle-aussi, la convergence du rayon lumineux. Le rayon traverse,
+ensuite, le sténopé, et atteint le détecteur. Puisque l'oeil nu n'est pas en mesure de traiter l'image
+résultante, le détecteur reconstruit indirectement l'image à l'aide de balayages de l'échantillon. De 
+ce fait, le faisceau se déplace, selon les différentes positions axiales, sur l'objet afin d'obtenir une
+image complète \cite{sheehy_experience_2024}.
 
 \subsection{Sténopé}
-Le sténopé correspond à une petite ouverture permettant d'éliminer les faisceaux ne provenant pas du plan focal. En d'autres termes, la lumière entrante est filtrée par l'ouverture, de sorte que l'aberration causée par la divergence des rayons du système, et ne laisse passer qu'un rayon pour chaque point de l'objet. Ainsi, l'ajout de cet outil permet d'améliorer la résolution axiale, en augmentant la netteté des images obtenues.
+Le sténopé correspond à une petite ouverture permettant d'éliminer les faisceaux ne provenant pas du 
+plan focal. En d'autres termes, la lumière entrante est filtrée par l'ouverture, de sorte que 
+l'aberration causée par la divergence des rayons du système soit réduite, et ne laisse passer qu'un 
+rayon pour chaque point de l'objet. Ainsi, l'ajout de cet outil permet d'améliorer la résolution axiale, 
+en augmentant la netteté des images obtenues.
 
 \subsection{Résolution axiale}
-La résolution axiale, en microscopie confocale, correspond à la capacité d'un système à distinguer deux points situés à différentes profondeurs sur l'axe optique. En d'autres termes, elle correspond à la distance minimale à laquelle ces deux points peuvent être distingués comme distincts \textcolor{red}{(Source 4)}. Cette donnée dépend, généralement, de quelques paramètres tels que la longueur d'onde de la lumière utilisée, de l'ouverture numérique du sténopé, et du système optique \textcolor{red}{(Source 5)}. Pour cette expérience, les paramètres d'ouverture et de système optique sont considérés pour déterminer la résolution.
-
-% Source 4 : https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4379090/#:~:text=Theoretically%2C%20the%20lateral%20and%20axial,be%20distinguished%20as%20distinct%20objects.
-
- % Source 5 : 
- %@incollection{jonkman200318,
-  %title={[18] Resolution in optical microscopy},
-  %author={Jonkman, James EN and Swoger, Jim and Kress, Holger and Rohrbach, Alexander and Stelzer, Ernst HK},
-  %booktitle={Methods in enzymology},
-  %volume={360},
-  %pages={416--446},
-  %year={2003},
-  %publisher={Elsevier}
-%}
+La résolution axiale, en microscopie confocale, correspond à la capacité d'un système à distinguer deux
+points situés à différentes profondeurs sur l'axe optique. En d'autres termes, elle correspond à la
+distance minimale à laquelle ces deux points peuvent être distingués comme distincts
+\cite{fouquet_improving_2015}. Cette donnée dépend, généralement, de quelques paramètres tels que la
+longueur d'onde de la lumière utilisée, de l'ouverture numérique du sténopé, et du système optique
+\cite{jonkman_18_2003}. Pour cette expérience, les paramètres d'ouverture et de système optique sont
+considérés pour déterminer la résolution.
 
 \subsection{Lentilles convergentes}
-Les lentilles optiques ont pour fonction de concentrer ou de disperser les rayons qui les traversent à l'aide du principe de réfraction, soit la redirection des faisceaux lumineux. Dans le cas des lentilles convergentes, les rayons de lumière sont redirigés de sorte que ceux-ci se concentrent en un point spécifique, appelé le point focal \textcolor{red}{(Source 6)}. Ce point est, généralement, donné par un paramètre : la distance focale. En effet, la distance focale correspond à la longueur entre le centre de la lentille et le point focal, soit l'endroit où convergent les faisceaux. Ainsi, une courte distance, comme dans le cas de cette expérience, place l'image à proximité de la lentille elle-même.
+Les lentilles optiques ont pour fonction de concentrer ou de disperser les rayons qui les traversent à 
+l'aide du principe de réfraction, soit la redirection des faisceaux lumineux. Dans le cas des lentilles 
+convergentes, les rayons de lumière sont redirigés de sorte que ceux-ci se concentrent en un point 
+spécifique, appelé le point focal \cite{noauthor_thin_nodate}. Ce point est, généralement, donné par 
+un paramètre : la distance focale. En effet, la distance focale correspond à la longueur entre le
+centre de la lentille et le point focal, soit l'endroit où convergent les faisceaux. Ainsi, une courte
+distance, comme dans le cas de cette expérience, place l'image à proximité de la lentille elle-même.
 
-En microscopie confocale, les lentilles convergentes sont utilisées afin de concentrer la lumière et d'agrandir l'image des objets petits. Ainsi, le point focal est utilisé pour sélectionner un plan spécifique de l'échantillon à observer, et la lumière réfléchie par l'objet, soit le point focal, est filtrée par le sténopé, ce qui permet la formation nette des images \textcolor{red}{(Source 7)}.
-
-% Source 6 : https://www.khanacademy.org/science/in-in-class-12th-physics-india/in-in-ray-optics-and-optical-instruments/in-in-refraction-in-thin-lenses/a/thin-lens-sign-conventions#:~:text=If%20both%20sides%20of%20the,point%2C%20called%20the%20focal%20point.
-
-% Source 7 : https://www.britannica.com/technology/lens-optics
+En microscopie confocale, les lentilles convergentes sont utilisées afin de concentrer la lumière et 
+d'agrandir l'image des objets petits. Ainsi, le point focal est utilisé pour sélectionner un plan 
+spécifique de l'échantillon à observer, et la lumière réfléchie par l'objet, soit le point focal, 
+est filtrée par le sténopé, ce qui permet la formation nette des images \cite{noauthor_lens_2024}.
 
 \subsection{Approximation des rayons}
-L'approximation des rayons consiste à supposer que la lumière se déplace, dans un milieu homogène, en ligne droite perpendiculairement au front d'ondes \textcolor{red}{(Source 8)}. En d'autres termes, avec cette approximation, l'onde, se déplaçant à travers une interface, est considérée comme une ligne droite se propageant dans la direction de ses rayons. De cette manière, cette théorie permet à la lumière d'effectuer des réflexions et des réfractions lorsqu'elle entre en contact avec des surfaces \textcolor{red}{(Source 9)}. Cette supposition permet, ainsi, d'utiliser l'optique géométrique pour déterminer le parcours de ces dits faisceaux lumineux. 
-
-% Source 8 : chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://faculty.ksu.edu.sa/sites/default/files/phys_111-_lec-1718-the_nature_of_light_and_the_principles_of_ray_optics.pdf
-% Source 9 : chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://physique.cmaisonneuve.qc.ca/svezina/nyc/note_nyc/NYC_XXI_Chap%202.1a.pdf
+L'approximation des rayons consiste à supposer que la lumière se déplace, dans un milieu homogène, 
+en ligne droite perpendiculairement au front d'ondes \cite{qaid_nature_nodate}. En d'autres termes,
+avec cette approximation, l'onde, se déplaçant à travers une interface, est considérée comme une ligne
+droite se propageant dans la direction de ses rayons. De cette manière, cette théorie permet à la
+lumière d'effectuer des réflexions et des réfractions lorsqu'elle entre en contact avec des surfaces
+\cite{vesina_optique_nodate}. Cette supposition permet, ainsi, d'utiliser l'optique géométrique pour 
+déterminer le parcours de ces dits faisceaux lumineux. 
 
 \subsection{Modèle mathématique de calcul de résolution}
-Une méthode essentielle pour la résolution de problèmes optiques consiste à la méthode des matrices. Celle-ci repose sur la représentation visuelle des rayons à travers le système optique, qui, dans le cas de cette expérience, provient de l'énoncé du laboratoire \textcolor{red}{(Source 3)}.
-% Source 3 : Procédurier
+Une méthode essentielle pour la résolution de problèmes optiques consiste à la méthode des matrices. 
+Celle-ci repose sur la représentation visuelle des rayons à travers le système optique, qui, dans le 
+cas de cette expérience, provient de l'énoncé du laboratoire \cite{sheehy_experience_2024}.
+
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.15]{rayons_pinhole.png}
@@ -193,7 +229,10 @@ Une méthode essentielle pour la résolution de problèmes optiques consiste à 
   \label{rayons}
 \end{figure}
 
-À partir de ce schéma, il est possible de mettre le \textit{input plane} (IP), qui correspond à l'entrée des rayons lumineux, au plan focal, et le \textit{output plane} (OP), soit la sortie de ceux-ci, au sténopé. Ainsi, il est possible de poser une matrice de transfert $M$ au système de la façon suivante :
+À partir de ce schéma, il est possible de mettre le \textit{input plane} (IP), qui correspond à 
+l'entrée des rayons lumineux, au plan focal, et le \textit{output plane} (OP), soit la sortie de
+ceux-ci, au sténopé. Ainsi, il est possible de poser une matrice de transfert $M$ au système de la 
+façon suivante :
 
 \begin{equation}
   M = M_{t3}M_{f2}M_{t2}M_{f1}M_{t1}
@@ -229,7 +268,8 @@ où $x$ est la longueur de la translation selon l'axe optique. Un matrice de len
   \end{bmatrix}
 \end{equation}
 
-où $f$ est la distance focale de la lentille. Soit $r_i$, un rayon de lumière initial au plan focal. Ce dernier se décrit par sa hauteur et par son angle par rapport à l'axe optique $\hat{z}$ :
+où $f$ est la distance focale de la lentille. Soit $r_i$, un rayon de lumière initial au plan focal. 
+Ce dernier se décrit par sa hauteur et par son angle par rapport à l'axe optique $\hat{z}$ :
 
 \begin{equation}
   r_{i}= 
@@ -243,7 +283,8 @@ où $f$ est la distance focale de la lentille. Soit $r_i$, un rayon de lumière 
   \end{bmatrix}
 \end{equation}
 
-La hauteur $y_{i}$ est nulle car le rayon de lumière commence sur l'axe optique. Soit aussi $r_{f}$, le rayon final qui arrive au sténopé :
+La hauteur $y_{i}$ est nulle car le rayon de lumière commence sur l'axe optique. Soit aussi $r_{f}$,
+le rayon final qui arrive au sténopé :
 
 \begin{equation}
   r_{f}= 
@@ -253,9 +294,14 @@ La hauteur $y_{i}$ est nulle car le rayon de lumière commence sur l'axe optique
   \end{bmatrix}
 \end{equation}
 
-C'est avec la définition de ce rayon final qu'il est possible de développer le modèle pour la résolution axiale $\delta_{z}$. En effet, tel que visible à la figure \ref{rayons}, deux rayons finaux peuvent être dessinés à partir des deux extrémités du sténopé. Ces deux derniers convergent à des plans focaux qui ont une distance différente avec la première lentille. La différence entre ces distances est la résolution axiale recherchée.
+C'est avec la définition de ce rayon final qu'il est possible de développer le modèle pour la résolution
+axiale $\delta_{z}$. En effet, tel que visible à la figure \ref{rayons}, deux rayons finaux peuvent
+être dessinés à partir des deux extrémités du sténopé. Ces deux derniers convergent à des plans focaux
+qui ont une distance différente avec la première lentille. La différence entre ces distances est la
+résolution axiale recherchée.
 
-Soit le cas 1, où l'on dénote la hauteur du rayon final au sténopé $y_{f1} = d/2$. Ce rayon est illustré en rouge. Il est possible de développer l'équation matricielle suivante :
+Soit le cas 1, où l'on dénote la hauteur du rayon final au sténopé $y_{f1} = d/2$. Ce rayon est illustré
+en rouge. Il est possible de développer l'équation matricielle suivante :
 
 \begin{align}
   r_{f1}&= M r_{i1}\label{matrixeq}\\
@@ -275,7 +321,11 @@ L'angle $\alpha_{f1}$ se trouve par trigonométrie :
   \alpha_{f1}= \arctan\left( \frac{\phi_{f_{2}}-d}{2f_{2}} \right)
 \end{equation}
 
-où $\phi$ dénote le diamètre d'une lentille. Il est possible de dénoter la distance inconnue entre le plan focal du cas 1 et la lentille 1 par $z_{1}$. Cette dernière se trouve dans $M_{t1}$, et donc dans $M$. Du coup, à l'aide de la librairie de calcul symbolique \textit{sympy}, il est possible de calculer aisément la matrice de transfert et de résoudre l'équation (\ref{matrixeq}) avec la méthode \texttt{LUSolve}. Le résultat a donc la forme suivante :
+où $\phi$ dénote le diamètre d'une lentille. Il est possible de dénoter la distance inconnue entre
+le plan focal du cas 1 et la lentille 1 par $z_{1}$. Cette dernière se trouve dans $M_{t1}$, et donc
+dans $M$. Du coup, à l'aide de la librairie de calcul symbolique \textit{sympy}, il est possible de
+calculer aisément la matrice de transfert et de résoudre l'équation (\ref{matrixeq}) avec la méthode
+\texttt{LUSolve}. Le résultat a donc la forme suivante :
 
 \begin{equation}
   r_{i1}= \begin{bmatrix}
@@ -290,15 +340,18 @@ Or, sachant que :
   y_{i1}(z_{1})=0
 \end{equation}
 
-La fonction sympy \texttt{solve} permet de résoudre cette équation symboliquement pour $z_{1}$, et après substitution, sa valeur numérique peut être connue.
+La fonction sympy \texttt{solve} permet de résoudre cette équation symboliquement pour $z_{1}$, et
+après substitution, sa valeur numérique peut être connue.
 
-Ces étapes de résolution se répètent pour le cas 2, où l'on dénote la hauteur du rayon final au sténopé $y_{f2} = -d/2$. Ce rayon est illustré en orange. Son angle se trouve également par trigonométrie :
+Ces étapes de résolution se répètent pour le cas 2, où l'on dénote la hauteur du rayon final au 
+sténopé $y_{f2} = -d/2$. Ce rayon est illustré en orange. Son angle se trouve également par trigonométrie :
 
 \begin{equation}
   \alpha_{f1}= \arctan\left( \frac{\phi_{f_{2}}+d}{2f_{2}} \right)
 \end{equation}
 
-Il est donc possible en résolvant les mêmes équations mais pour le cas 2 d'obtenir $z_{2}$. Enfin, la résolution axiale se trouve ainsi :
+Il est donc possible en résolvant les mêmes équations mais pour le cas 2 d'obtenir $z_{2}$. Enfin,
+la résolution axiale se trouve ainsi :
 
 \begin{equation}
   \delta_{z}= |z_{2}-z_{1}|
@@ -307,11 +360,14 @@ Il est donc possible en résolvant les mêmes équations mais pour le cas 2 d'ob
 Cette valeur dépend donc de $z$, qui, à son tour, dépend des paramètres du montage physique.
 
 \section{Méthodologie}
-La méthode utilisée lors de ce laboratoire a pour but de mesurer l'impact d'un sténopé sur la résolution axiale ($\delta x$) d'un montage optique confocal. En d'autre termes, l'objectif est d'étbalir la relation entre la puissance du système et la position d'un objet observé avec et sans sténopé. La figure \ref{montage} présente le montage optique confocal utilisé lors du laboratoire. 
+La méthode utilisée lors de ce laboratoire a pour but de mesurer l'impact d'un sténopé sur la 
+résolution axiale ($\delta x$) d'un montage optique confocal. En d'autre termes, l'objectif est 
+d'étbalir la relation entre la puissance du système et la position d'un objet observé avec et sans 
+sténopé. La figure \ref{montage} présente le montage optique confocal utilisé lors du laboratoire, tel que spécifié dans le procédurier \cite{sheehy_experience_2024}. 
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.7]{Montage laboratoire 1.png}
+  \includegraphics[scale=0.2]{montage_labo.png}
   \caption{Montage optique confocal utilisé lors du laboratoire}
   \label{montage}
 \end{figure}
@@ -319,26 +375,48 @@ La méthode utilisée lors de ce laboratoire a pour but de mesurer l'impact d'un
 Le matériel utilisé dans ce montage est :
 
 \begin{itemize}
-    \item[$-$]  1 source laser et source d’alimentation
-    \item[$-$]  3 miroirs avec vis d’alignement ($M_i$)
-    \item[$-$]  1 cube beam splitter ($BS$)
-    \item[$-$]  2 iris (pour alignement)
-    \item[$-$]  2 lentilles ($f_1 = f_2 = 35 mm, \phi_1 = \phi_1 = 25.4 mm$)
-    \item[$-$]  1 stage de translation ($\hat{z}$)
-    \item[$-$]  1 monture de translation XY (\textit{thorlabs ST1XY-S(/M)})
-    \item[$-$]  1 sténopé ($\phi = 75\mu m$)
-    \item[$-$]  1 power meter ($PM$)
+    \item 1 source laser et source d’alimentation
+    \item 3 miroirs avec vis d’alignement ($M_i$)
+    \item 1 cube beam splitter ($BS$)
+    \item 2 iris (pour alignement)
+    \item 2 lentilles ($f_1 = f_2 = 35 mm, \phi_1 = \phi_1 = 25.4 mm$)
+    \item 1 stage de translation ($\hat{z}$)
+    \item 1 monture de translation XY (\textit{thorlabs ST1XY-S(/M)})
+    \item 1 sténopé ($\phi = 75\mu m$)
+    \item 1 power meter ($PM$)
 \end{itemize}
 
-Dans ce système, l'objet observé ($M_s$) est un miroir. La fonction de celui-ci est de réfléchir un rayon émis depuis une source laser, puis de le filtrer en longueur d'onde par des miroir dichroïques ($M1$ et $M2$), vers un puissance-mètre ($PM$). Ce rayon est focalisé une première fois par une lentille ($f_1$), puis redirigé après reflexion vers une autre lentille ($f_2$) afin de mesurer l'impact du déplacement du miroir sur la puissance mesurée. Cette partie du montage correspond au système optique présenté dans la figure \ref{rayons} et peut, donc, être décrite par les équations développées dans la partie théorie. Le miroir est rendu mobile par une monture de translation et la déviation vers la seconde lentille se fait par l'intermédiare d'un $"$cube beam splitter$"$ ($BS$).
+Dans ce système, l'objet observé ($M_s$) est un miroir. La fonction de celui-ci est de réfléchir un
+rayon émis depuis une source laser, puis de le filtrer en longueur d'onde par des miroir dichroïques
+($M1$ et $M2$), vers un puissance-mètre ($PM$). Ce rayon est focalisé une première fois par une lentille
+($f_1$), puis redirigé après reflexion vers une autre lentille ($f_2$) afin de mesurer l'impact du
+déplacement du miroir sur la puissance mesurée. Cette partie du montage correspond au système optique 
+présenté dans la figure \ref{rayons} et peut, donc, être décrite par les équations développées dans la
+partie théorie. Le miroir est rendu mobile par une monture de translation et la déviation vers la seconde
+lentille se fait par l'intermédiare d'un $"$cube beam splitter$"$ ($BS$).
 
-De façon concrête, le but de l'expérience est de placer le miroir à une position focalisée, où la puissance captée est maximale, puis de le faire bouger selon l'axe de translation du faisceau. Cette démarche permet de récolter un grand nombre de données, qui permet, grâce à une interpolation, d'établir la relation entre la puissance et la position du capteur. En répétant ce même protocole deux fois sur des montages similaires, d'abord sans le sénopé, puis avec, les relations établies permettent de comprendre son impact vis-à-vis de la distance focale du système ($\delta x$). 
+De façon concrête, le but de l'expérience est de placer le miroir à une position focalisée, où la 
+puissance captée est maximale, puis de le faire bouger selon l'axe de translation du faisceau. Cette
+démarche permet de récolter un grand nombre de données, qui permet, grâce à une interpolation, d'établir
+la relation entre la puissance et la position du capteur. En répétant ce même protocole deux fois sur
+des montages similaires, d'abord sans le sénopé, puis avec, les relations établies permettent de 
+comprendre son impact vis-à-vis de la distance focale du système ($\delta x$). 
 
 \section{Hypothèses}
 
-Afin de prédire le comportement de la résolution axiale en fonction des différents paramètres physiques du système, un modèle de calcul ainsi qu'un programme python a été utilisé. Ces derniers sont présentés en annexe. Le programme python utilise d'abord la librairie numpy afin de définir des fonctions qui génèrent des matrices de translation ou de lentille mince. Ensuite, une fonction est créée pour calculer la résolution axiale en fonction de la largeur du sténopé, de la distance focale ainsi que de la distance séparant les lentilles, tel que décrit dans le modèle de calcul. Dans cette fonction, sympy est utilisé pour effectuer la résolution symbolique de la multiplication matricielle et des équations autant algébriques que matricielle. À la fin de cette fonction, les valeurs numériques sont substituées pour avoir une valeur numérique de résolution. Le programme utilise enfin matplotlib afin de de visualiser le résultat de cette fonction pour des plages de paramètres.
+Afin de prédire le comportement de la résolution axiale en fonction des différents paramètres physiques
+du système, un modèle de calcul ainsi qu'un programme python a été utilisé. Ces derniers sont présentés
+en annexe. Le programme python utilise d'abord la librairie numpy afin de définir des fonctions qui 
+génèrent des matrices de translation ou de lentille mince. Ensuite, une fonction est créée pour calculer
+la résolution axiale en fonction de la largeur du sténopé, de la distance focale ainsi que de la distance
+séparant les lentilles, tel que décrit dans le modèle de calcul. Dans cette fonction, sympy est utilisé
+pour effectuer la résolution symbolique de la multiplication matricielle et des équations autant
+algébriques que matricielle. À la fin de cette fonction, les valeurs numériques sont substituées pour
+avoir une valeur numérique de résolution. Le programme utilise enfin matplotlib afin de de visualiser
+le résultat de cette fonction pour des plages de paramètres.
 
-Le graphique présenté en figure \ref{respin} démontre la variation de la résolution axiale pour une plage de diamètre de sténopé et ce, pour cinq valeurs différentes de longueur focale.
+Le graphique présenté en figure \ref{respin} démontre la variation de la résolution axiale pour une
+plage de diamètre de sténopé et ce, pour cinq valeurs différentes de longueur focale.
 
 \begin{figure}[H]
   \centering
@@ -347,7 +425,9 @@ Le graphique présenté en figure \ref{respin} démontre la variation de la rés
   \label{respin}
 \end{figure}
 ''
-L'hypotèse présentée par le modèle de calcul est que la variation de $d$ fait augmenter linéairement la résolution axiale. Ensuite, la figure \ref{resfoc} montre la variation de la résolution axiale pour une plage de longueur focale des deux lentilles, pour quatres valeurs différentes de diamètre de sténopé.
+L'hypotèse présentée par le modèle de calcul est que la variation de $d$ fait augmenter linéairement
+la résolution axiale. Ensuite, la figure \ref{resfoc} montre la variation de la résolution axiale pour
+une plage de longueur focale des deux lentilles, pour quatres valeurs différentes de diamètre de sténopé.
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.7]{res_vs_focal.png}
@@ -355,7 +435,10 @@ L'hypotèse présentée par le modèle de calcul est que la variation de $d$ fai
   \label{resfoc}
 \end{figure}
 
-Il est donc possible de prédire un comportement quasi-linéaire pour la résolution axiale en fonction de la focale. Ce comportement ne semble toutefois pas valide pour des valeurs de $f$ très petites. Enfin, la figure \ref{resl} présente la résolution axiale en fonction de la distance entre les lentilles pour cinq valeurs différents de focales. 
+Il est donc possible de prédire un comportement quasi-linéaire pour la résolution axiale en fonction 
+de la focale. Ce comportement ne semble toutefois pas valide pour des valeurs de $f$ très petites. Enfin,
+la figure \ref{resl} présente la résolution axiale en fonction de la distance entre les lentilles pour
+cinq valeurs différents de focales. 
 
 \begin{figure}[H]
   \centering
@@ -514,7 +597,7 @@ plt.clf()
 
 \clearpage
 
-% \bibliographystyle{unsrtnat}
-% \bibliography{My_Library}
+\bibliographystyle{unsrtnat}
+\bibliography{microscopie_confocale.bib}
 
 \end{document}
