@@ -139,6 +139,7 @@ Polytechnique Montréal\\}
 %----------------------------------------------------
 
 \section{Introduction}
+La microscopie confocale, technique d'imagerie optique avancée, joue un rôle essentiel dans l'exploration des structures microscopiques, offrant la possibilité d'étudier des phénomènes complexes à haute résolution. Reposant sur un principe de filtration de la lumière, cette méthode permet, contrairement à celle conventiionnelles, de reconstruire des images tridimensionnelles avec précision. De cette manière, pour mesurer la performance de ces systèmes avancés, un paramètre important est considéré : la résolution axiale, qui détermine la finesse avec laquelle il est possible de distinguer les structures à observer. Dans le cadre de cette expérience, l'objectif est de mesurer la résolution axiale d'un système optique en mesurant expérimentalement la courbe d'intensité du dit système avec un sténopé, puis sans le sténopé. Les attentes vis-à-vis ce laboratoire sont de permettre à cette équipe d'approfondir leurs connaissances, autant pratiques que théoriques, sur l'optique et le fonctionnement des microscopes. Pour ce faire, un système optique est construit, l'objet imagé est, ensuite, déplacé afin de varier la distance, et les mesures de puissance sont prises pour chaque nouvelle distance, ce qui permettra la création de la courbe désirée. Le document présent revient sur les étapes importantes de l'expérience. Ainsi, afin d'assurer la compréhension, la théorie relative à l'élaboration du modèle est d'abord présentée, puis suivie par la méthodologie utilisée pour réaliser l'expérimentation. Ensuite, dans le but de prédire le comportement de la résolution obtenue, les hypothèses, développées par un programme Python, sont exposées. Finalement, les résultats obtenus lors de l'expérience sont montrés et, par la suite, analysés dans la section discussion.
 
 \section{Théorie}
 \subsection{Microsopie Confocale}
@@ -306,10 +307,7 @@ Il est donc possible en résolvant les mêmes équations mais pour le cas 2 d'ob
 Cette valeur dépend donc de $z$, qui, à son tour, dépend des paramètres du montage physique.
 
 \section{Méthodologie}
-
-\section{Méthodologie}
-
-La méthode utilisée lors de ce laboratoire à pour but de : mesurer l'impact d'un sténopé sur la résolution axiale ($\delta x$) d'un montage optique confocal. Ou en d'autre termes d'étbalir la relation entre la puissance du système et la position d'un objet observé avec et sans sténopé. La figure \ref{montage} présente le montage optique confocal utilisé lors du laboratoire. 
+La méthode utilisée lors de ce laboratoire a pour but de mesurer l'impact d'un sténopé sur la résolution axiale ($\delta x$) d'un montage optique confocal. En d'autre termes, l'objectif est d'étbalir la relation entre la puissance du système et la position d'un objet observé avec et sans sténopé. La figure \ref{montage} présente le montage optique confocal utilisé lors du laboratoire. 
 
 \begin{figure}[H]
   \centering
@@ -326,15 +324,15 @@ Le matériel utilisé dans ce montage est :
     \item[$-$]  1 cube beam splitter ($BS$)
     \item[$-$]  2 iris (pour alignement)
     \item[$-$]  2 lentilles ($f_1 = f_2 = 35 mm, \phi_1 = \phi_1 = 25.4 mm$)
-    \item[$-$]  1 stage de translation (\hat{z})
+    \item[$-$]  1 stage de translation ($\hat{z}$)
     \item[$-$]  1 monture de translation XY (\textit{thorlabs ST1XY-S(/M)})
-    \item[$-$]  1 sténopé ($\phi = 75μm$)
+    \item[$-$]  1 sténopé ($\phi = 75\mu m$)
     \item[$-$]  1 power meter ($PM$)
 \end{itemize}
 
-Dans ce système, l'objet observé ($M_s$) est un miroir. Sa fonction est de réfléchir un rayon émit depuis une source laser, puis filtré en longueur d'onde par des miroir dichroïques ($M1$ et $M2$), vers un puissance-mètre ($PM$). Ce rayon est focalisé une première fois par une lentille ($f_1$) puis redirigée après reflexion vers une autre lentille ($f_2$) afin de mesurer l'impact du déplacement du miroir sur la puissance mesurée. Cette partie du montage correspond au système optique présenté dans la figure \ref{rayons} et peut donc être décrit par les équations développées dans la partie théorie. Le miroir est rendu mobile par une monture de translation et la déviation vers la seconde lentille se fait par l'intermédiare d'un $"$cube beam splitter$"$ ($BS$). \\
+Dans ce système, l'objet observé ($M_s$) est un miroir. La fonction de celui-ci est de réfléchir un rayon émis depuis une source laser, puis de le filtrer en longueur d'onde par des miroir dichroïques ($M1$ et $M2$), vers un puissance-mètre ($PM$). Ce rayon est focalisé une première fois par une lentille ($f_1$), puis redirigé après reflexion vers une autre lentille ($f_2$) afin de mesurer l'impact du déplacement du miroir sur la puissance mesurée. Cette partie du montage correspond au système optique présenté dans la figure \ref{rayons} et peut, donc, être décrite par les équations développées dans la partie théorie. Le miroir est rendu mobile par une monture de translation et la déviation vers la seconde lentille se fait par l'intermédiare d'un $"$cube beam splitter$"$ ($BS$).
 
-De façon concrête, le but des expériences est de placer le miroir à une position focalisé, où la puissance captée est maximale, puis de le faire bouger selon l'axe de translation du faisceaux. Cette démarche permet de récolter un paquet de données, permettant grâce à une interpolation d'établir la relation entre la puissance et la position du capteur. En répétant ce même protocole deux fois sur des montages similaires, d'abord sans le sénopé, puis avec, les relations établies permettent de comprendre son impact vis-à-vis de la distance focale du système ($\delta x$). 
+De façon concrête, le but de l'expérience est de placer le miroir à une position focalisée, où la puissance captée est maximale, puis de le faire bouger selon l'axe de translation du faisceau. Cette démarche permet de récolter un grand nombre de données, qui permet, grâce à une interpolation, d'établir la relation entre la puissance et la position du capteur. En répétant ce même protocole deux fois sur des montages similaires, d'abord sans le sénopé, puis avec, les relations établies permettent de comprendre son impact vis-à-vis de la distance focale du système ($\delta x$). 
 
 \section{Hypothèses}
 
