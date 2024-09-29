@@ -82,6 +82,9 @@ for i in range(len(x_data)):
         params.add(f'peak_{j + 1}_amplitude', value=amplitude[j])  # Valeur d'amplitude pour le pic j
 
     # Calculer les incertitudes à partir des valeurs d'erreur
+    
+    x_errors = np.full_like(x_data[i], 0.005)
+    
     y_min = np.array(error_p[0]) if i == 0 else np.array(error_e[0])  # Choisir les incertitudes appropriées
     y_max = np.array(error_p[1]) if i == 0 else np.array(error_e[1])
     
@@ -128,8 +131,10 @@ for i in range(len(x_data)):
         # Tracer les données et l'ajustement
         plt.figure(figsize=(12, 8))  # Taille du graphique
         sns.scatterplot(data=df, x='x', y='y', label='Données d\'origine', color='blue')
-        plt.errorbar(df['x'], df['y'], yerr=[df['y_errors_inf'], df['y_errors_sup']], 
-                     fmt='none', ecolor='blue', capsize=5, label='Incertitudes')
+        plt.errorbar(df['x'], df['y'], 
+             xerr=x_errors,  # Ajouter les erreurs en x
+             yerr=[df['y_errors_inf'], df['y_errors_sup']], 
+             fmt='none', ecolor='blue', capsize=5, label='Incertitudes')
         sns.lineplot(data=df, x='x', y='y_fit', label='Ajustement gaussien', color='red', linewidth=2)
 
         # Tracer chaque gaussienne
