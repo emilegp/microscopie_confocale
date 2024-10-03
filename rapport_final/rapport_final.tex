@@ -142,13 +142,60 @@ Polytechnique Montréal\\}
 
 \subsection{Estimation de la résolution}
 
-%TODO : graph avec sténopé
+Les figures \ref{brutes 1} et \ref{brutes 2} présentent sous la forme de graphiques, les données brutes recueillies lors du laboratoire. 
 
-%TODO : graph sans sténopé
+% Résultats brut 
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}[t]{0.46\linewidth}
+        \centering
+        \includegraphics[scale=0.32]{Données brutes 1.png}
+        \caption{Données brutes obtenues pour le système avec pinhole}
+        \label{brutes 1}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.5\linewidth}
+        \centering
+        \includegraphics[scale=0.32]{Données brutes 2.png}
+        \caption{Données brutes obtenues pour le système sans pinhole}
+        \label{brutes 2}
+    \end{minipage}
 
-%TODO : justifier le choix de la fonction de fit
+\end{figure}
 
-%TODO : estimer la resolution avec la largeur a mi-hauteur
+Au regard de l'allure de ces données, la fonction utilisées pour en faire un fit est une somme de fonctions gaussiennes centrées selon les positions des différents maximums d'amplitude. L'utilisation de la librairie \textit{lm.fit} de python permet de déterminer les valeurs optimales de ces courbes de tendances et de les représenter. Les figures \ref{fit 1} et \ref{fit 2} présentent sous la forme de graphiques, les fonctions de fitting obtenues pour les deux jeux de données brutes différents. 
+
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}[t]{0.46\linewidth}
+        \centering
+        \includegraphics[scale=0.32]{Données fit 1.png}
+        \caption{Partie réelle et imaginaire du signal brut pour 10ms}
+        \label{fit 1}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.5\linewidth}
+        \centering
+        \includegraphics[scale=0.32]{Données fit 2.png}
+        \caption{Phase du signal brut pour 10ms}
+        \label{fit 2}
+    \end{minipage}
+\end{figure}
+
+Ces représentations du signal sous la forme de somme de courbes gaussiennes permettent de mettre en évidence deux maximums d'amplitudes pour chacune des séries de données. L'amplitude représentative de la résolution du système est celle de valeur maximale. Cette résolution, représentée comme étant la largeur de la courbe à mi-hauteur de l'amplitude maximale peut, elle aussi être estimée à l'aide de \textit{lm.fit}. Le tableau \ref{FMWH} représente les résolutions obtenues ainsi que les erreurs qui leurs sont associées en fonction de la série de données :
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{3.2cm}|p{4.2cm}|p{3.2cm}|}
+\cline{2-3}
+\multicolumn{1}{c|}{} & \textbf{Largeur à mi-hauteur} & \textbf{Erreur} \\
+\hline
+\textbf{Avec pinhole} & 1.317578 & 0.092557 \\
+\hline
+\textbf{Sans pinhole} & 5.742349 & 0.943043 \\
+\hline
+\end{tabular}
+\caption{Largeur à mi-hauteur et erreurs en fonction du jeu de données}
+\label{FMWH}
+\end{table}
 
 \subsection{Analyse de données de LSCM en fluorescence}
 
@@ -194,23 +241,27 @@ incertitudes (surtout sur le power meter)
 \subsection{Question 1}
 
 %TODO
+Le fonctionnement de base de la microscopie confocale par fluorescence repose sur l'utilisation d'un laser focalisé afin de balayer un échantillon marqué par des fluorophores, tout en éliminant, à l'aide d'un diaphrame optique nommé sténopé, les interférences provenant des plans non-focaux \textcolor{red}{(Source 1)}. En d'autres termes, 
+
 
 (de ce que j'ai compris apres avoir jasé avec Noémie lol)
 tu peux tag certaines parties d'organismes vivants avec des fluorophores.
 les couleurs viennent de ces différents fluorophores
 un canal analyse qu'un type de fluorophore
 
+% Source 1 : https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6961134/
+
 \subsection{Question 2}
 
 %TODO : trouver la source, puis confirmer apres que ça fit avec l'image 3d
 
 \subsection{Question 3}
+Le rôle d'un sténopé dans un système optique est d'éliminer les faisceaux lumineux ne provenant pas du plan focal, permettant d'améliorer la définition et la netteté des images. Cependant, la taille de ce diaphrame est important dans le balancement de la résolution et de la quantité de lumière admise par le système. En effet, si la taille du sténopé est trop petite, la quantité de lumière provenant du plan focal lui-même est réduite, engendrant une perte de puissance. De plus, puisque la quantité de lumière atteignant le détecteur est réduite, le rapport entre le bruit et les signaux diminue, ce qui rend le bruit de fond plus apparent. De cette manière, les images peuvent apparaître moins définies et plus sombres \textcolor{red}{(Source 2)}.
 
-%TODO
+**Quel serait le sténopé le plus petit que l’on pourrait utiliser avec un
+système parfait utilisant un profil de faisceau gaussien et opérant à 600 nm?**
 
-le pinhole améliore la netteté des images, la définition des cellules, etc.
-perte de puissance avec un pinhole, un trop petit bloquerait toute image
-voir sources pour le shit de plus petit sténopé possible  
+% Source 2 : Confocal Microscopy C Denis Semwogerere Eric R. Weeks. (Chrome Extension, je te l'enverrai quand tu vas être rendu aux sources) 
 
 \subsection{Question 4}
 
@@ -221,6 +272,12 @@ faire reference a la figure prostate side by side
 \section{Conclusion}
 
 %TODO
+
+\begin{lstlisting}[language=python]
+print("l'exam d'optique etait deg")
+\end{lstlisting}
+
+
 
 \clearpage
 

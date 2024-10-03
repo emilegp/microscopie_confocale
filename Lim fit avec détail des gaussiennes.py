@@ -64,10 +64,10 @@ for i in range(len(x_data)):
     amplitude = [y_data[i][pos] for pos in position]  # Amplitude à ces pics
     sigma = peak_widths(y_data[i], position, rel_height=0.99)[0]  # Largeur des pics
     print("Moyennes (mu):", mu, "Amplitudes:", amplitude, "Largeurs (sigma):", sigma)
-
+    
     # Création du modèle gaussien cumulatif
     model = None
-    for j in range(len(mu)):
+    for j in range(2):
         prefix = f'peak_{j + 1}_'
         mod = Model(gaussian, prefix=prefix)
         model = mod if model is None else model + mod  # Combiner les modèles gaussiens
@@ -76,7 +76,7 @@ for i in range(len(x_data)):
     params = model.make_params()
     
     # Assignation des valeurs initiales
-    for j in range(len(mu)):
+    for j in range(2):
         params.add(f'peak_{j + 1}_mu', value=mu[j])  # Valeur de mu pour le pic j
         params.add(f'peak_{j + 1}_sigma', value=sigma[j])  # Valeur de sigma pour le pic j
         params.add(f'peak_{j + 1}_amplitude', value=amplitude[j])  # Valeur d'amplitude pour le pic j
@@ -100,13 +100,17 @@ for i in range(len(x_data)):
         result = model.fit(y_data[i], params, x=x_data[i])
         print(result.fit_report())
 
-        # Stocker les résultats
-        for j in range(len(mu)):
+        # Stocker les résultats avec les erreurs sur sigma
+        for j in range(2):
+            sigma_value = result.params[f'peak_{j + 1}_sigma'].value
+            sigma_error = result.params[f'peak_{j + 1}_sigma'].stderr  # Récupérer l'erreur sur sigma
+            
             results_summary.append({
                 'Ensemble de données': i + 1,
                 'Pic': j + 1,
                 'mu': result.params[f'peak_{j + 1}_mu'].value,
-                'sigma': result.params[f'peak_{j + 1}_sigma'].value,
+                'sigma': sigma_value,
+                'sigma_error': sigma_error,  # Ajouter l'erreur sur sigma
                 'amplitude': result.params[f'peak_{j + 1}_amplitude'].value,
             })
     
@@ -138,12 +142,12 @@ for i in range(len(x_data)):
         sns.lineplot(data=df, x='x', y='y_fit', label='Ajustement gaussien', color='red', linewidth=2)
 
         # Tracer chaque gaussienne
-        for j in range(len(mu)):
+        for j in range(2):
             y_gaussian = gaussian(x_fit, result.params[f'peak_{j + 1}_mu'].value, 
                                   result.params[f'peak_{j + 1}_sigma'].value, 
                                   result.params[f'peak_{j + 1}_amplitude'].value)
             plt.plot(x_fit, y_gaussian, linestyle='--', label=f'Gaussienne {j + 1}', alpha=0.7)
-
+            
         # Ajouter des titres et des labels
         plt.title(f"Ajustement Gaussien pour l'ensemble de données {i + 1}", fontsize=16)
         plt.xlabel("Distance", fontsize=14)
@@ -155,6 +159,6 @@ for i in range(len(x_data)):
     except Exception as e:
         print(f"Erreur lors de l'ajustement pour l'ensemble de données {i + 1}: {e}")
 
-# Afficher le résumé des résultats
+# Afficher le résumé des résultats avec erreurs
 results_df = pd.DataFrame(results_summary)
-print(results_df)
+print(results_df[['Ensemble de données', 'Pic', 'mu', 'sigma', 'sigma_error', 'amplitude']])
