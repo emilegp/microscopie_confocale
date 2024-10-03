@@ -142,13 +142,60 @@ Polytechnique Montréal\\}
 
 \subsection{Estimation de la résolution}
 
-%TODO : graph avec sténopé
+Les figures \ref{brutes 1} et \ref{brutes 2} présentent sous la forme de graphiques, les données brutes recueillies lors du laboratoire. 
 
-%TODO : graph sans sténopé
+% Résultats brut 
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}[t]{0.46\linewidth}
+        \centering
+        \includegraphics[scale=0.32]{Données brutes 1.png}
+        \caption{Données brutes obtenues pour le système avec pinhole}
+        \label{brutes 1}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.5\linewidth}
+        \centering
+        \includegraphics[scale=0.32]{Données brutes 2.png}
+        \caption{Données brutes obtenues pour le système sans pinhole}
+        \label{brutes 2}
+    \end{minipage}
 
-%TODO : justifier le choix de la fonction de fit
+\end{figure}
 
-%TODO : estimer la resolution avec la largeur a mi-hauteur
+Au regard de l'allure de ces données, la fonction utilisées pour en faire un fit est une somme de fonctions gaussiennes centrées selon les positions des différents maximums d'amplitude. L'utilisation de la librairie \textit{lm.fit} de python permet de déterminer les valeurs optimales de ces courbes de tendances et de les représenter. Les figures \ref{fit 1} et \ref{fit 2} présentent sous la forme de graphiques, les fonctions de fitting obtenues pour les deux jeux de données brutes différents. 
+
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}[t]{0.46\linewidth}
+        \centering
+        \includegraphics[scale=0.32]{Données fit 1.png}
+        \caption{Partie réelle et imaginaire du signal brut pour 10ms}
+        \label{fit 1}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.5\linewidth}
+        \centering
+        \includegraphics[scale=0.32]{Données fit 2.png}
+        \caption{Phase du signal brut pour 10ms}
+        \label{fit 2}
+    \end{minipage}
+\end{figure}
+
+Ces représentations du signal sous la forme de somme de courbes gaussiennes permettent de mettre en évidence, deux maximums d'amplitudes pour chacune des séries de données. L'amplitude représentative de la résolution du système est celle de valeur maximale. En utilisant les données recueillis lors des approximations, la largeur à mi-hauteur peut-être approximée comme :
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{3.2cm}|p{4.2cm}|p{3.2cm}|}
+\cline{2-3}
+\multicolumn{1}{c|}{} & \textbf{Largeur à mi-hauteur} & \textbf{Erreur} \\
+\hline
+\textbf{Avec pinhole} & 1.317578 & 0.092557 \\
+\hline
+\textbf{Sans pinhole} & 5.742349 & 0.943043 \\
+\hline
+\end{tabular}
+\caption{Largeur à mi-hauteur et erreurs en fonction du jeu de données}
+\label{FMWH}
+\end{table}
 
 \subsection{Analyse de données de LSCM en fluorescence}
 
