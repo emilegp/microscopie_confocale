@@ -152,9 +152,29 @@ Polytechnique Montréal\\}
 
 \subsection{Analyse de données de LSCM en fluorescence}
 
-%TODO : comparaison d'images
+Une image 3D acquise en microscopie confocale par un microscope \textit{Leica TCS SP5 MP} est analysée. Les données
+acquises au préalable sont des cellules de prostate \textit{RWPE-1}, avec plusieurs cellules de cancer de la prostate
+\textit{PC3} présentes. La figure \ref{non_yes_confo} présente côte à côte une image de ces cellules pour comparer
+l'image d'un système non-confocal à l'image d'un système confocal.
 
-%TODO : volume de quelques cellules
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.45]{non_and_yes_confocal.png}
+  \caption{Comparaison de l'imagerie obtenue d'un système non-confocal (à gauche) à celle d'un système confocal (à droite).}
+  \label{non_yes_confo}
+\end{figure}
+
+Il est possible de voir une meilleure résolution sur l'acquisition confocale, ce qui résulte en des contours plus définis.
+Ensuite, la figure \ref{3d_cells} présente trois coupes de l'image 3D autour du même point dants l'espace afin de
+représenter le volume de quelques cellules.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.34]{volume.png}
+  \caption{Volume de deux cellules bien visibles par LSCM en fluorescence présenté en trois plans.}
+  \label{3d_cells}
+\end{figure}
+
 
 \section{Discussion}
 
