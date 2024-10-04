@@ -4,7 +4,7 @@
 \usepackage{graphicx}
 \usepackage{etoolbox}
 \apptocmd{\sloppy}{\hbadness 10000\relax}{}{}
-% \usepackage[numbers]{natbib}
+\usepackage[numbers]{natbib}
 \usepackage[T1]{fontenc}
 \usepackage{ragged2e}
 \usepackage[french]{babel}
@@ -149,7 +149,7 @@ Les figures \ref{brutes 1} et \ref{brutes 2} présentent sous la forme de graphi
     \centering
     \begin{minipage}[t]{0.46\linewidth}
         \centering
-        \includegraphics[scale=0.32]{Données brutes 1.png}
+        \includegraphics[scale=0.31]{Données brutes 1.png}
         \caption{Données brutes obtenues pour le système avec pinhole}
         \label{brutes 1}
     \end{minipage}\hfill
@@ -168,13 +168,13 @@ Au regard de l'allure de ces données, la fonction utilisées pour en faire un f
     \centering
     \begin{minipage}[t]{0.46\linewidth}
         \centering
-        \includegraphics[scale=0.32]{Données fit 1.png}
+        \includegraphics[scale=0.31]{Données fit 1.png}
         \caption{Partie réelle et imaginaire du signal brut pour 10ms}
         \label{fit 1}
     \end{minipage}\hfill
     \begin{minipage}[t]{0.5\linewidth}
         \centering
-        \includegraphics[scale=0.32]{Données fit 2.png}
+        \includegraphics[scale=0.31]{Données fit 2.png}
         \caption{Phase du signal brut pour 10ms}
         \label{fit 2}
     \end{minipage}
@@ -251,33 +251,22 @@ Les erreurs liées aux données récoltés trouvent leur causes dans de nombreux
 \label{incertitudes}
 \end{table}
 
-L'incertitude de 10 microns liée à la monture de translation est donné par le constructeur du dispositif. Dans le cas du power-meter, ces erreurs ont été calculées en prenant les valeurs maximales, minimales et moyenne des données recueillis, puis en faisant une moyenne des écarts à gauche et à droite. \\
+L'incertitude de 10 microns liée à la monture de translation est donné par le constructeur du dispositif. Dans le cas du power-meter, ces erreurs ont été calculées en prenant les valeurs maximales, minimales et moyenne des données recueillis, puis en faisant une moyenne des écarts à gauche et à droite.
 
-De plus, sur chacun des graphiques obtenus, un autre maximum d'amplitude se dessine, révélé par les courbes gaussiennes de couleur jaune. Le fait que ces deux anomalies soient présentent quelque soit le jeu de données indique une défaillance au niveau de la source de lumière du système, du laser. C'est cette défaillance qui oblige à utiliser une somme de courbe gaussienne et qui induit donc des erreurs lors de l'estimation de la résolution. De façon générale, l'utilisation de librairies comme \textit{lm.fit} induit des sources d'erreurs lors de l'étude d'un jeu de données discret. Mais le fait de devoir sommer des courbes gaussiennes en les considérant adéquates, force à relier la résolution estimée à une solution qui ne la représente que indirectement (la courbe bleu du jeu de données avec pinhole n'étant pas exactement la courbe représentative du système dans un cas idéal).\\
+De plus, sur chacun des graphiques obtenus, un autre maximum d'amplitude se dessine, révélé par les courbes gaussiennes de couleur jaune. Le fait que ces deux anomalies soient présentent quelque soit le jeu de données indique une défaillance au niveau de la source de lumière du système, du laser. C'est cette défaillance qui oblige à utiliser une somme de courbe gaussienne et qui induit donc des erreurs lors de l'estimation de la résolution. De façon générale, l'utilisation de librairies comme \textit{lm.fit} induit des sources d'erreurs lors de l'étude d'un jeu de données discret. Mais le fait de devoir sommer des courbes gaussiennes en les considérant adéquates, force à relier la résolution estimée à une solution qui ne la représente que indirectement (la courbe bleu du jeu de données avec pinhole n'étant pas exactement la courbe représentative du système dans un cas idéal).
 
 D'autres erreurs, plus pratiques, liées à l'alignement du système sont aussi à noter. Notamment lors des étapes d'alignement des back réflections. Néanmoins, le suivit en temps réel des valeurs de puissance recueillis à permit d'ajuster l'alignement du pinhole et ainsi maximiser l'amplitude du système. 
 \subsection{Question 1}
 
 %TODO
-Le fonctionnement de base de la microscopie confocale par fluorescence repose sur l'utilisation de la fluorescence afin de visualiser des points spécifiques de l'échantillon \textcolor{red}{(Source 1)}. En d'autres termes, l'échantillon est balayé, point par point, par un laser focalisé dans le but de produire les différentes profondeurs de l'image. Les fluorophores placés à certains points de l'échantillon sont alors excités par le faisceau laser, produisant une fluorescence. Cette lumière passe, ensuite, dans le sténopé, permettant l'élimination des rayons lumineux hors-focus, et est détectée par le capteur; l'image est, ainsi, créée.
+Le fonctionnement de base de la microscopie confocale par fluorescence repose sur l'utilisation de la fluorescence afin de visualiser des points spécifiques de l'échantillon \cite{elliott_confocal_2020}. En d'autres termes, l'échantillon est balayé, point par point, par un laser focalisé dans le but de produire les différentes profondeurs de l'image. Les fluorophores placés à certains points de l'échantillon sont alors excités par le faisceau laser, produisant une fluorescence. Cette lumière passe, ensuite, dans le sténopé, permettant l'élimination des rayons lumineux hors-focus, et est détectée par le capteur; l'image est, ainsi, créée.
 
-Les couleurs des images dans la microscopie LSCM par fluorescence proviennent des fluorophores utilisés pour marquer les points de l'échantillon. Ces fluorophores correspondent à des protéines fluorescentes qui ont deux longueurs d'ondes importantes : la longueur d'onde d'absorption et la longueur d'onde d'émission. Les protéines, lorsqu'elles absorbent la lumière, émettent une lumière à une longueur d'onde supérieure à celle absorbée. De ce fait, lorsque l'échantillon est balayé par le laser, les fluorophores excités retransmettre une lumière à une certaine longueur d'onde. Celle-ci est, ensuite, captée par le détecteur et crée ainsi la gamme de couleurs retrouvées \textcolor{red}{(Source 2)}. Comme ces protéines sont fabriquées spécialement pour se joindre à des parties spécifiques des cellules, la fluorescence permet l'observation ciblée de différents éléments de la matière observée, à l'aide de canaux différents.
+Les couleurs des images dans la microscopie LSCM par fluorescence proviennent des fluorophores utilisés pour marquer les points de l'échantillon. Ces fluorophores correspondent à des protéines fluorescentes qui ont deux longueurs d'ondes importantes : la longueur d'onde d'absorption et la longueur d'onde d'émission. Les protéines, lorsqu'elles absorbent la lumière, émettent une lumière à une longueur d'onde supérieure à celle absorbée. De ce fait, lorsque l'échantillon est balayé par le laser, les fluorophores excités retransmettre une lumière à une certaine longueur d'onde. Celle-ci est, ensuite, captée par le détecteur et crée ainsi la gamme de couleurs retrouvées \cite{leclerc_proteines_2014}. Comme ces protéines sont fabriquées spécialement pour se joindre à des parties spécifiques des cellules, la fluorescence permet l'observation ciblée de différents éléments de la matière observée, à l'aide de canaux différents.
 
-En ce qui a trait aux différents canaux de l'image, le premier canal correspond aux cellules cancéreuses de l'échantillon, soit les parties anormales à détecter. Le deuxième canal correspond au cytoplasme, soit la partie gélatineuse du contenu de la cellule. Celle-ci se trouve entre la membrane plasmique et le noyau \textcolor{red}{(Source 3)}. Finalement, le dernier canal de l'image correspond au \textit{bright field}. Ce canal représente une image en lumière blanche traditionnelle, la lumière est transmise à travers l'échantillon et le contraste est généré par l'absorption de celle-ci dans les zones denses. Donc, ce canal permet d'offrir une visualition générale de la cellule \textcolor{red}{(Source 4)}.
-
-%tu peux tag certaines parties d'organismes vivants avec des fluorophores.
-%les couleurs viennent de ces différents fluorophores un canal analyse qu'un type de fluorophore
-
-% Source 1 : https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6961134/
-
-% Source 2 : Protéines-fluorescentes-cours
-
-% Source 3 : https://www.futura-sciences.com/sante/definitions/biologie-cytoplasme-125/
-
-% Source 4 : https://www.sciencedirect.com/topics/medicine-and-dentistry/bright-field-microscopy
+En ce qui a trait aux différents canaux de l'image, le premier canal correspond aux cellules cancéreuses de l'échantillon, soit les parties anormales à détecter. Le deuxième canal correspond au cytoplasme, soit la partie gélatineuse du contenu de la cellule. Celle-ci se trouve entre la membrane plasmique et le noyau \cite{futura_definition_2024}. Finalement, le dernier canal de l'image correspond au \textit{bright field}. Ce canal représente une image en lumière blanche traditionnelle, la lumière est transmise à travers l'échantillon et le contraste est généré par l'absorption de celle-ci dans les zones denses. Donc, ce canal permet d'offrir une visualition générale de la cellule \cite{sciencedirect_bright_nodate}.
 
 \subsection{Question 2}
-Pour trouver une estimation de la résolution du système, la taille réelle d'une cellule cancéreuse de prostate est d'abord trouvée. De cette manière, le diamètre d'une cellule réelle est d'environ 16.6$\pm$2.9 $\mu$m avec une épaisseur d'environ 15.1$\pm$2.6 $\mu$m  \textcolor{red}{(Source A)}. Ensuite, à partir de l'image 3D donnée, le nombre de pixel pour le diamètre de de la cellule est évaluée. Donc, pour la cellule sur la figure \ref{3d_cells}, un diamètre d'environ 25$\pm$1 pixels et une épaisseur de 12$\pm$1 sont comptés. Avec ces données, il est possible de calculer la résolution latérale et axiale. Donc, la résolution est donnée par l'équation suivante :
+Pour trouver une estimation de la résolution du système, la taille réelle d'une cellule cancéreuse de prostate est d'abord trouvée. De cette manière, le diamètre d'une cellule réelle est d'environ 16.6$\pm$2.9 $\mu$m avec une épaisseur d'environ 15.1$\pm$2.6 $\mu$m \cite{seo_mechanical_2017}. Ensuite, à partir de l'image 3D donnée, le nombre de pixel pour le diamètre de de la cellule est évaluée. Donc, pour la cellule sur la figure \ref{3d_cells}, un diamètre d'environ 25$\pm$1 pixels et une épaisseur de 12$\pm$1 sont comptés. Avec ces données, il est possible de calculer la résolution latérale et axiale. Donc, la résolution est donnée par l'équation suivante :
 \begin{equation}
   R=\frac{\text{Diamètre de cellule réelle}}{\text{Nb de pixels}}
 \end{equation}
@@ -298,15 +287,10 @@ Où $\Delta V_{R}$ est l'incertitude de la valeur réelle de la cellule, $V_{R}$
   R_{L}&=0.66\pm0.2\,\mu\mathrm{m} & R_{A}&=1.3\pm0.2\,\mu\mathrm{m} \\
 \end{align*}
 
-
-%TODO : trouver la source, puis confirmer apres que ça fit avec l'image 3d
-
-% Source A : https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5578258/
-
 \subsection{Question 3}
-Le rôle d'un sténopé dans un système optique est d'éliminer les faisceaux lumineux ne provenant pas du plan focal, permettant d'améliorer la définition et la netteté des images. Cependant, la taille de ce diaphrame est important dans le balancement de la résolution et de la quantité de lumière admise par le système. En effet, si la taille du sténopé est trop petite, la quantité de lumière provenant du plan focal lui-même est réduite, engendrant une perte de puissance. De plus, puisque la quantité de lumière atteignant le détecteur est réduite, le rapport entre le bruit et les signaux diminue, ce qui rend le bruit de fond plus apparent. De cette manière, les images peuvent apparaître moins définies et plus sombres \textcolor{red}{(Source 5)}. 
+Le rôle d'un sténopé dans un système optique est d'éliminer les faisceaux lumineux ne provenant pas du plan focal, permettant d'améliorer la définition et la netteté des images. Cependant, la taille de ce diaphrame est important dans le balancement de la résolution et de la quantité de lumière admise par le système. En effet, si la taille du sténopé est trop petite, la quantité de lumière provenant du plan focal lui-même est réduite, engendrant une perte de puissance. De plus, puisque la quantité de lumière atteignant le détecteur est réduite, le rapport entre le bruit et les signaux diminue, ce qui rend le bruit de fond plus apparent. De cette manière, les images peuvent apparaître moins définies et plus sombres \cite{semwogerere_confocal_2005}. 
 
-Par exemple, pour un système parfait utilisant un profil de faisceau gaussien et opérant à une longueur d'onde de 600 nm, la taille du sténopé le plus petit qu'il serait possible d'utiliser peut être calculée à l'aide de la formule suivante \textcolor{red}{(Source X)} :
+Par exemple, pour un système parfait utilisant un profil de faisceau gaussien et opérant à une longueur d'onde de 600 nm, la taille du sténopé le plus petit qu'il serait possible d'utiliser peut être calculée à l'aide de la formule suivante \cite{noauthor_gaussian_2024} :
 \begin{equation}
   \theta=\frac{\lambda}{n\pi\omega_{0}}
 \end{equation}
@@ -318,12 +302,9 @@ En utilisant les valeurs numériques données dans le procédurier, un angle de 
 \begin{equation}
   \omega_{0}=\frac{\lambda}{n\pi\theta}=272.84\,\mathrm{nm}
 \end{equation}
-% Source 5 : Confocal Microscopy 
-
-% Source X : https://en.wikipedia.org/wiki/Gaussian_beam
 
 \subsection{Question 4}
-La résolution latérale correspond à la capacité d'un système à distinguer les points d'un objet qui sont situés à proximité l'un de l'autres alors que le contraste, étroitement lié à la résolution, est défini comme la quantité de photons collectés à partir de l'échantillon \textcolor{red}{(Source 6)}. Les systèmes confocaux permettent d'améliorer ces deux paramètres avec l'ajout d'un diaphrame optique. Comme mentionné, l'ajout de ce sténopé permet de limiter les faisceaux lumineux, ce qui élimine les rayons en provenance des plans non-focaux. Puisque la lumière atteignant le détecteur ne provent que du plan focal de l'échantillon, le bruit créé par les rayons extérieurs est réduit. De cette manière, le flou créé par ces rayons est éliminé et la différence de lumiosité entre les structures est mieux définie, offrant ainsi une amélioration dans la résolution et dans le contraste \textcolor{red}{(Source 7)}.
+La résolution latérale correspond à la capacité d'un système à distinguer les points d'un objet qui sont situés à proximité l'un de l'autres alors que le contraste, étroitement lié à la résolution, est défini comme la quantité de photons collectés à partir de l'échantillon \cite{spring_confocal_nodate}. Les systèmes confocaux permettent d'améliorer ces deux paramètres avec l'ajout d'un diaphrame optique. Comme mentionné, l'ajout de ce sténopé permet de limiter les faisceaux lumineux, ce qui élimine les rayons en provenance des plans non-focaux. Puisque la lumière atteignant le détecteur ne provent que du plan focal de l'échantillon, le bruit créé par les rayons extérieurs est réduit. De cette manière, le flou créé par ces rayons est éliminé et la différence de lumiosité entre les structures est mieux définie, offrant ainsi une amélioration dans la résolution et dans le contraste \cite{borlinghaus_pinhole_2017}.
 
 Par exemple, dans la figure \ref{3d_cells} utilisant le système confocal, il est possible d'observer, en ce qui a trait au contraste, que des différences de lumiosité entre les canaux. En effet, les détails des divers canaux, soient le rouge, le bleu et le vert, peuvent être distingués clairement les uns des autres. Cependant, dans le cas de celui qui n'utilise pas le système confocal, soit le suivant :
 \begin{figure}[H]
@@ -334,30 +315,17 @@ Par exemple, dans la figure \ref{3d_cells} utilisant le système confocal, il es
 \end{figure}
 Les détails sont légèrement moins marqués que pour ceux de la figure \ref{3d_cells}, particulièrement dans les zones où les couleurs se chevauchent. De plus, pour l'image confocale, celle est mieux définie avec des contours plus nets autour des structures, facilitant la distinction des composantes. Ainsi, avec ces exemples, il est possible de visualiser l'augmentation de la résolution et du contraste lorsqu'un système confocal est utilisé.
 
-Bien que les systèmes confocaux font preuve de plusieurs avantages, ceux-ci comportent quelques désavantages. Un premier désagrément est la vitesse d'acquisition des données. Puisque les points sont balayés individuellement, l'acquisition des données est trop lente pour obtenir des informations sur des systèmes biologiques rapide \textcolor{red}{(Source 8)}. De plus, les microscopes confocaux n'utilisent qu'un seul photon pour exciter les fluorophores, ce qui peut résulter à plus grande dispersion de la lumière dans l'image que, par exemple, des sytèmes multiphotoniques \textcolor{red}{(Source 9)}.
-
-% Source 6 : https://www.olympus-lifescience.com/en/microscope-resource/primer/techniques/confocal/resolutionintro/
-
-% Source 7 : https://www.leica-microsystems.com/science-lab/life-science/pinhole-effect-in-confocal-microscopes/#:~:text=The%20lateral%20resolution%20at%201,30%25%20at%20pinhole%20diameter%20zero.
-
-% Source 8 : https://www.tandfonline.com/doi/full/10.2144/000112089#:~:text=A%20key%20limitation%20in%20the,information%20about%20rapid%20biological%20processes.
-
-% Source 9 : https://www.edmundoptics.ca/knowledge-center/application-notes/microscopy/confocal-microscopy/#:~:text=Compared%20to%20multiphoton%20microscopy%2C%20confocal,as%20deep%20into%20a%20sample.
+Bien que les systèmes confocaux font preuve de plusieurs avantages, ceux-ci comportent quelques désavantages. Un premier désagrément est la vitesse d'acquisition des données. Puisque les points sont balayés individuellement, l'acquisition des données est trop lente pour obtenir des informations sur des systèmes biologiques rapide \cite{st_croix_confocal_2005}. De plus, les microscopes confocaux n'utilisent qu'un seul photon pour exciter les fluorophores, ce qui peut résulter à plus grande dispersion de la lumière dans l'image que, par exemple, des sytèmes multiphotoniques \cite{francis_confocal_2023}.
 
 \section{Conclusion}
 
 %TODO
 
-\begin{lstlisting}[language=python]
-print("l'exam d'optique etait deg")
-\end{lstlisting}
-
-
 
 \clearpage
 
-%TODO
-% \bibliographystyle{unsrtnat}
-% \bibliography{My_Library}
+
+\bibliographystyle{unsrtnat}
+\bibliography{microscopie_final.bib}
 
 \end{document}
