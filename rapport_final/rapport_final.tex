@@ -142,7 +142,7 @@ Polytechnique Montréal\\}
 
 \subsection{Estimation de la résolution}
 
-Les figures \ref{brutes 1} et \ref{brutes 2} présentent sous la forme de graphiques, les données brutes recueillies lors du laboratoire. 
+Les figures \ref{brutes 1} et \ref{brutes 2} présentent, sous la forme de graphique, les données brutes recueillies lors du laboratoire. 
 
 % Résultats brut 
 \begin{figure}[h!]
@@ -162,7 +162,7 @@ Les figures \ref{brutes 1} et \ref{brutes 2} présentent sous la forme de graphi
 
 \end{figure}
 
-Au regard de l'allure de ces données, la fonction utilisées pour en faire un fit est une somme de fonctions gaussiennes centrées selon les positions des différents maximums d'amplitude. L'utilisation de la librairie \textit{lm.fit} de python permet de déterminer les valeurs optimales de ces courbes de tendances et de les représenter. Les figures \ref{fit 1} et \ref{fit 2} présentent sous la forme de graphiques, les fonctions de fitting obtenues pour les deux jeux de données brutes différents. 
+En observant l'allure de ces données, la fonction utilisée pour la courbe de tendance est une somme de fonctions gaussiennes centrées selon les positions des différents maximums d'amplitude. L'utilisation de la librairie \textit{lm.fit} de python permet de déterminer les valeurs optimales de ces courbes de tendances et de les représenter. Les figures \ref{fit 1} et \ref{fit 2} présentent, sous la forme de graphiques, les fonctions de tendance obtenues pour les deux jeux de données brutes différentes. 
 
 \begin{figure}[h!]
     \centering
@@ -180,7 +180,7 @@ Au regard de l'allure de ces données, la fonction utilisées pour en faire un f
     \end{minipage}
 \end{figure}
 
-Ces représentations du signal sous la forme de somme de courbes gaussiennes permettent de mettre en évidence deux maximums d'amplitudes pour chacune des séries de données. L'amplitude représentative de la résolution du système est celle de valeur maximale. Cette résolution, représentée comme étant la largeur de la courbe à mi-hauteur de l'amplitude maximale peut, elle aussi être estimée à l'aide de \textit{lm.fit}. Le tableau \ref{FMWH} représente les résolutions obtenues ainsi que les erreurs qui leurs sont associées en fonction de la série de données :
+Ces représentations du signal, sous la forme de somme de courbes gaussiennes, permettent de mettre en évidence deux maximums d'amplitude pour chacune des séries de données. L'amplitude représentative de la résolution du système est celle de valeur maximale. Cette résolution, représentée comme étant la largeur de la courbe à mi-hauteur de l'amplitude maximale, peut, elle aussi, être estimée à l'aide de \textit{lm.fit}. Le tableau \ref{FMWH} représente les résolutions obtenues ainsi que les erreurs qui leurs sont associées en fonction de la série de données.
 
 \begin{table}[H]
 \centering
@@ -197,7 +197,7 @@ Ces représentations du signal sous la forme de somme de courbes gaussiennes per
 \label{FMWH}
 \end{table}
 
-Les approximations sur la résolution de système ont été faite en se basant sur l'estimation de la largeur à mi-hauteur des courbes gaussiennes représentatives du maximum d'amplitude, en bleu pour le jeu de données avec pinhole et en rouge pour celui sans. Les valeurs des différentes erreurs liées à ces approximations ont été obtenues à l'aide de \textit{lm.fit}.
+Les approximations sur la résolution du système ont été faites en se basant sur l'estimation de la largeur à mi-hauteur des courbes gaussiennes représentatives du maximum d'amplitude, en bleu pour le jeu de données avec pinhole et en rouge pour celui sans. Les valeurs des différentes erreurs liées à ces approximations ont été obtenues à l'aide de \textit{lm.fit}.
 
 \subsection{Analyse de données de LSCM en fluorescence}
 
@@ -213,8 +213,7 @@ l'image d'un système non-confocal à l'image d'un système confocal.
   \label{non_yes_confo}
 \end{figure}
 
-Il est possible de voir une meilleure résolution sur l'acquisition confocale, ce qui résulte en des contours plus définis.
-Ensuite, la figure \ref{3d_cells} présente trois coupes de l'image 3D autour du même point dants l'espace afin de
+Il est possible de voir une meilleure résolution sur l'acquisition confocale, ce qui résulte en des contours plus définis. Ensuite, la figure \ref{3d_cells} présente trois coupes de l'image 3D autour du même point dans l'espace afin de
 représenter le volume de quelques cellules.
 
 \begin{figure}[H]
@@ -234,7 +233,7 @@ représenter le volume de quelques cellules.
 \subsection{Analyse des causes d'erreurs}
 
 %TODO
-Les erreurs liées aux données récoltés trouvent leur causes dans de nombreux éléments du systèmes optiques et des différents procédés d'analyse. A commencer par les incertitudes relatives aux appareils de mesure utilisés. Les figures \ref{brutes 1} et \ref{brutes 2} représentent comme présenté en partie 1 les résultats de mesures obtenues pour les deux systèmes, elles permettent aussi de mettre en évidence les erreurs relatives à chaque mesures. Erreurs liées aux échelles de mesures de la monture de translation pour les barres horizontales et celles du power-meter pour les barres verticales. Le tableau \ref{incertitudes} présente les incertitudes de chacun de ces composant optiques. 
+Les erreurs liées aux données récoltées trouvent leur causes dans de nombreux éléments du systèmes optiques et des différents procédés d'analyse. À commencer par les incertitudes relatives aux appareils de mesure utilisés. Les figures \ref{brutes 1} et \ref{brutes 2} représentent, comme présenté en partie 1, les résultats de mesures obtenues pour les deux systèmes et permettent aussi de mettre en évidence les erreurs relatives à chaque mesure. Les erreurs liées aux échelles de mesures de la monture de translation sont représentées par les barres horizontales et celles du power-meter sont représentées par les barres verticales. Le tableau \ref{incertitudes} présente les incertitudes de chacun de ces composants optiques. 
 
 \begin{table}[H]
 \centering
@@ -251,13 +250,13 @@ Les erreurs liées aux données récoltés trouvent leur causes dans de nombreux
 \label{incertitudes}
 \end{table}
 
-L'incertitude de 10 microns liée à la monture de translation est donné par le constructeur du dispositif. Dans le cas du power-meter, ces erreurs ont été calculées en prenant les valeurs maximales, minimales et moyenne des données recueillis, puis en faisant une moyenne des écarts à gauche et à droite.
+L'incertitude de 10 microns liée à la monture de translation est donnée par le constructeur du dispositif. Dans le cas du power-meter, ces erreurs ont été calculées en prenant les valeurs maximales, minimales et moyenne des données recueillies, puis en faisant une moyenne des écarts à gauche et à droite. 
 
-De plus, sur chacun des graphiques obtenus, un autre maximum d'amplitude se dessine, révélé par les courbes gaussiennes de couleur jaune. Le fait que ces deux anomalies soient présentent quelque soit le jeu de données indique une défaillance au niveau de la source de lumière du système, du laser. C'est cette défaillance qui oblige à utiliser une somme de courbe gaussienne et qui induit donc des erreurs lors de l'estimation de la résolution. De façon générale, l'utilisation de librairies comme \textit{lm.fit} induit des sources d'erreurs lors de l'étude d'un jeu de données discret. Mais le fait de devoir sommer des courbes gaussiennes en les considérant adéquates, force à relier la résolution estimée à une solution qui ne la représente que indirectement (la courbe bleu du jeu de données avec pinhole n'étant pas exactement la courbe représentative du système dans un cas idéal).
+De plus, sur chacun des graphiques obtenus, un autre maximum d'amplitude se dessine, révélé par les courbes gaussiennes de couleur jaune. Le fait que ces deux anomalies soient présentes quelque soit le jeu de données indique une défaillance au niveau de la source de lumière du système, soit le laser. C'est cette défaillance qui oblige à utiliser une somme de courbe gaussienne et qui induit donc des erreurs lors de l'estimation de la résolution. De façon générale, l'utilisation de librairies comme \textit{lm.fit} induit des sources d'erreurs lors de l'étude d'un jeu de données discrètes. Cependant, le fait de devoir sommer des courbes gaussiennes, en les considérant adéquates, force à relier la résolution estimée à une solution qui ne la représente que indirectement (la courbe bleue du jeu de données avec pinhole n'étant pas exactement la courbe représentative du système dans un cas idéal).
 
-D'autres erreurs, plus pratiques, liées à l'alignement du système sont aussi à noter. Notamment lors des étapes d'alignement des back réflections. Néanmoins, le suivit en temps réel des valeurs de puissance recueillis à permit d'ajuster l'alignement du pinhole et ainsi maximiser l'amplitude du système. 
+D'autres erreurs, plus pratiques, liées à l'alignement du système sont aussi à noter, notamment lors des étapes d'alignement des \textit{back} réflections. Néanmoins, le suivi en temps réel des valeurs de puissance recueillies a permis d'ajuster l'alignement du pinhole et ainsi maximiser l'amplitude du système. 
+
 \subsection{Question 1}
-
 %TODO
 Le fonctionnement de base de la microscopie confocale par fluorescence repose sur l'utilisation de la fluorescence afin de visualiser des points spécifiques de l'échantillon \cite{elliott_confocal_2020}. En d'autres termes, l'échantillon est balayé, point par point, par un laser focalisé dans le but de produire les différentes profondeurs de l'image. Les fluorophores placés à certains points de l'échantillon sont alors excités par le faisceau laser, produisant une fluorescence. Cette lumière passe, ensuite, dans le sténopé, permettant l'élimination des rayons lumineux hors-focus, et est détectée par le capteur; l'image est, ainsi, créée.
 
@@ -318,8 +317,7 @@ Les détails sont légèrement moins marqués que pour ceux de la figure \ref{3d
 Bien que les systèmes confocaux font preuve de plusieurs avantages, ceux-ci comportent quelques désavantages. Un premier désagrément est la vitesse d'acquisition des données. Puisque les points sont balayés individuellement, l'acquisition des données est trop lente pour obtenir des informations sur des systèmes biologiques rapide \cite{st_croix_confocal_2005}. De plus, les microscopes confocaux n'utilisent qu'un seul photon pour exciter les fluorophores, ce qui peut résulter à plus grande dispersion de la lumière dans l'image que, par exemple, des sytèmes multiphotoniques \cite{francis_confocal_2023}.
 
 \section{Conclusion}
-
-%TODO
+En conclusion, l'objectif de cette expérience consistait à mesurer la résolution axiale d'un système confocal à travers l'analyse d'une courbe d'intensité axiale d'un système avec et sans l'utilisation d'un sténopé. De cette manière, après avoir amassées les données d'intensité, des courbes de tendance ont pu être créées. À partir des courbes d'intensité, l'amplitude représentative de la résolution a pu être calculée à l'aide de la largeur à mi-hauteur de la valeur maximale. Cette estimation de la largeur a permis d'offrir les résultats approximatifs de la résolution. Pour justifier les divergences entre les hypothèses théoriques précédentes, quelques causes d'erreur ont été notées telles que les incertitudes relatives aux appareils, une défaillance au niveau de la source lumineuse, et l'alignement du système. Or, malgré la légère divergence de résultat, l'expérience a permis de visualiser l'influence d'un sténopé dans la limitation des faisceaux non-focaux et l'amélioration de la qualité d'imagerie, offrant ainsi des perspectives intéressantes sur les techniques d'imagerie de performance et un approfondissement des connaissances en optique, autant pratiques que théoriques.
 
 
 \clearpage
