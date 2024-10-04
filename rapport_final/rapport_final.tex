@@ -259,8 +259,31 @@ En ce qui a trait aux différents canaux de l'image, le premier canal correspond
 % Source 4 : https://www.sciencedirect.com/topics/medicine-and-dentistry/bright-field-microscopy
 
 \subsection{Question 2}
+Pour trouver une estimation de la résolution du système, la taille réelle d'une cellule cancéreuse de prostate est d'abord trouvée. De cette manière, le diamètre d'une cellule réelle est d'environ 16.6$\pm$2.9 $\mu$m avec une épaisseur d'environ 15.1$\pm$2.6 $\mu$m  \textcolor{red}{(Source A)}. Ensuite, à partir de l'image 3D donnée, le nombre de pixel pour le diamètre de de la cellule est évaluée. Donc, pour la cellule sur la figure \ref{3d_cells}, un diamètre d'environ 25$\pm$1 pixels et une épaisseur de 12$\pm$1 sont comptés. Avec ces données, il est possible de calculer la résolution latérale et axiale. Donc, la résolution est donnée par l'équation suivante :
+\begin{equation}
+  R=\frac{\text{Diamètre de cellule réelle}}{\text{Nb de pixels}}
+\end{equation}
+La résolution latérale correspond au plan \textit{xy}, ainsi le résultat de celle-ci est de :
+\begin{equation}
+  R_{L}=\frac{16.6\,\mu\mathrm{m}}{25\,\mathrm{Pixels}}=0.66\,\frac{\mu\mathrm{m}}{\mathrm{Pixels}}
+\end{equation}
+En utilisant la même équation pour la résolution axiale, correspondant au plan \textit{z}, le résultat obtenu est de :
+\begin{equation}
+  R_{A}=\frac{15.1\,\mu\mathrm{m}}{12\,\mathrm{Pixels}}=1.3\,\frac{\mu\mathrm{m}}{\mathrm{Pixels}}
+\end{equation}
+Pour les deux valeurs obtenues, les incertitudes sont calculées à l'aide de la formule suivante :
+\begin{equation}
+  \Delta R=\sqrt{\left(\frac{\Delta V_{R}}{V_{R}}\right)^{2}+\left(\frac{\Delta V_{P}}{V_{P}}\right)^{2}}
+\end{equation}
+Où $\Delta V_{R}$ est l'incertitude de la valeur réelle de la cellule, $V_{R}$ est la valeur réelle de la cellule, $\Delta V_{P}$ est l'incertitude de la valeur comptée, et $V_{P}$ est la valeur comptée. Ainsi, les valeurs estimées de résolution avec leur incertitude sont les suivantes :
+\begin{align*}
+  R_{L}&=0.66\pm0.2\,\mu\mathrm{m} & R_{A}&=1.3\pm0.2\,\mu\mathrm{m} \\
+\end{align*}
+
 
 %TODO : trouver la source, puis confirmer apres que ça fit avec l'image 3d
+
+% Source A : https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5578258/
 
 \subsection{Question 3}
 Le rôle d'un sténopé dans un système optique est d'éliminer les faisceaux lumineux ne provenant pas du plan focal, permettant d'améliorer la définition et la netteté des images. Cependant, la taille de ce diaphrame est important dans le balancement de la résolution et de la quantité de lumière admise par le système. En effet, si la taille du sténopé est trop petite, la quantité de lumière provenant du plan focal lui-même est réduite, engendrant une perte de puissance. De plus, puisque la quantité de lumière atteignant le détecteur est réduite, le rapport entre le bruit et les signaux diminue, ce qui rend le bruit de fond plus apparent. De cette manière, les images peuvent apparaître moins définies et plus sombres \textcolor{red}{(Source 5)}. 
@@ -269,8 +292,14 @@ Par exemple, pour un système parfait utilisant un profil de faisceau gaussien e
 \begin{equation}
   \theta=\frac{\lambda}{n\pi\omega_{0}}
 \end{equation}
-Où $\lambda$ est la longueur d'onde, soit de 600 nm, $\omega_{0}$ est la taille du faisceau, et $n$ est l'indice de réfraction. La taille du sténopé peut être estimée à partir de la taille du faisceau. En effet, dans un système parfait, la taille du faisceau est approximativement proportionnelle à celle du sténopé. Donc, pour trouver la valeur de $\omega_0$, il faut estimer la valeur de l'angle de divergence du faisceau. 
-
+Où $\lambda$ est la longueur d'onde, soit de 600 nm, $\omega_{0}$ est la taille du faisceau, et $n$ est l'indice de réfraction. La taille du sténopé peut être estimée à partir de la taille du faisceau. En effet, dans un système parfait, la taille du faisceau est approximativement proportionnelle à celle du sténopé. Donc, pour trouver la valeur de $\omega_0$, il faut estimer la valeur de l'angle de divergence du faisceau. Pour trouver cet angle, l'angle de convergence de la dernière lentille est calculé.
+\begin{equation}
+  \theta=2\tan\left(\frac{\phi/2}{f}\right)
+\end{equation}
+En utilisant les valeurs numériques données dans le procédurier, un angle de 0.7 radians est trouvé. Ainsi, en isolant la valeur recherchée dans l'équation 5 et en calculant numériquement, la taille la plus petite pour le sténopé est de :
+\begin{equation}
+  \omega_{0}=\frac{\lambda}{n\pi\theta}=272.84\,\mathrm{nm}
+\end{equation}
 % Source 5 : Confocal Microscopy 
 
 % Source X : https://en.wikipedia.org/wiki/Gaussian_beam
