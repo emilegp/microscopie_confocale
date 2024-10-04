@@ -241,33 +241,61 @@ incertitudes (surtout sur le power meter)
 \subsection{Question 1}
 
 %TODO
-Le fonctionnement de base de la microscopie confocale par fluorescence repose sur l'utilisation d'un laser focalisé afin de balayer un échantillon marqué par des fluorophores, tout en éliminant, à l'aide d'un diaphrame optique nommé sténopé, les interférences provenant des plans non-focaux \textcolor{red}{(Source 1)}. En d'autres termes, 
+Le fonctionnement de base de la microscopie confocale par fluorescence repose sur l'utilisation de la fluorescence afin de visualiser des points spécifiques de l'échantillon \textcolor{red}{(Source 1)}. En d'autres termes, l'échantillon est balayé, point par point, par un laser focalisé dans le but de produire les différentes profondeurs de l'image. Les fluorophores placés à certains points de l'échantillon sont alors excités par le faisceau laser, produisant une fluorescence. Cette lumière passe, ensuite, dans le sténopé, permettant l'élimination des rayons lumineux hors-focus, et est détectée par le capteur; l'image est, ainsi, créée.
 
+Les couleurs des images dans la microscopie LSCM par fluorescence proviennent des fluorophores utilisés pour marquer les points de l'échantillon. Ces fluorophores correspondent à des protéines fluorescentes qui ont deux longueurs d'ondes importantes : la longueur d'onde d'absorption et la longueur d'onde d'émission. Les protéines, lorsqu'elles absorbent la lumière, émettent une lumière à une longueur d'onde supérieure à celle absorbée. De ce fait, lorsque l'échantillon est balayé par le laser, les fluorophores excités retransmettre une lumière à une certaine longueur d'onde. Celle-ci est, ensuite, captée par le détecteur et crée ainsi la gamme de couleurs retrouvées \textcolor{red}{(Source 2)}.
 
-(de ce que j'ai compris apres avoir jasé avec Noémie lol)
-tu peux tag certaines parties d'organismes vivants avec des fluorophores.
-les couleurs viennent de ces différents fluorophores
-un canal analyse qu'un type de fluorophore
+En ce qui a trait aux différents canaux de l'image, le premier canal correspond aux cellules cancéreuses de l'échantillon, soit les parties anormales à détecter. Le deuxième canal correspond au cytoplasme, soit la partie gélatineuse du contenu de la cellule. Celle-ci se trouve entre la membrane plasmique et le noyau \textcolor{red}{(Source 3)}. Finalement, le dernier canal de l'image correspond au \textit{bright field}. Ce canal représente une image en lumière blanche traditionnelle, la lumière est transmise à travers l'échantillon et le contraste est généré par l'absorption de celle-ci dans les zones denses. Donc, ce canal permet d'offrir une visualition générale de la cellule \textcolor{red}{(Source 4)}.
+
+%tu peux tag certaines parties d'organismes vivants avec des fluorophores.
+%les couleurs viennent de ces différents fluorophores un canal analyse qu'un type de fluorophore
 
 % Source 1 : https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6961134/
+
+% Source 2 : Protéines-fluorescentes-cours
+
+% Source 3 : https://www.futura-sciences.com/sante/definitions/biologie-cytoplasme-125/
+
+% Source 4 : https://www.sciencedirect.com/topics/medicine-and-dentistry/bright-field-microscopy
 
 \subsection{Question 2}
 
 %TODO : trouver la source, puis confirmer apres que ça fit avec l'image 3d
 
 \subsection{Question 3}
-Le rôle d'un sténopé dans un système optique est d'éliminer les faisceaux lumineux ne provenant pas du plan focal, permettant d'améliorer la définition et la netteté des images. Cependant, la taille de ce diaphrame est important dans le balancement de la résolution et de la quantité de lumière admise par le système. En effet, si la taille du sténopé est trop petite, la quantité de lumière provenant du plan focal lui-même est réduite, engendrant une perte de puissance. De plus, puisque la quantité de lumière atteignant le détecteur est réduite, le rapport entre le bruit et les signaux diminue, ce qui rend le bruit de fond plus apparent. De cette manière, les images peuvent apparaître moins définies et plus sombres \textcolor{red}{(Source 2)}.
+Le rôle d'un sténopé dans un système optique est d'éliminer les faisceaux lumineux ne provenant pas du plan focal, permettant d'améliorer la définition et la netteté des images. Cependant, la taille de ce diaphrame est important dans le balancement de la résolution et de la quantité de lumière admise par le système. En effet, si la taille du sténopé est trop petite, la quantité de lumière provenant du plan focal lui-même est réduite, engendrant une perte de puissance. De plus, puisque la quantité de lumière atteignant le détecteur est réduite, le rapport entre le bruit et les signaux diminue, ce qui rend le bruit de fond plus apparent. De cette manière, les images peuvent apparaître moins définies et plus sombres \textcolor{red}{(Source 5)}. 
 
-**Quel serait le sténopé le plus petit que l’on pourrait utiliser avec un
-système parfait utilisant un profil de faisceau gaussien et opérant à 600 nm?**
+Par exemple, pour un système parfait utilisant un profil de faisceau gaussien et opérant à une longueur d'onde de 600 nm, la taille du sténopé le plus petit qu'il serait possible d'utiliser peut être calculée à l'aide de la formule suivante \textcolor{red}{(Source X)} :
+\begin{equation}
+  \theta=\frac{\lambda}{n\pi\omega_{0}}
+\end{equation}
+Où $\lambda$ est la longueur d'onde, soit de 600 nm, $\omega_{0}$ est la taille du faisceau, et $n$ est l'indice de réfraction. La taille du sténopé peut être estimée à partir de la taille du faisceau. En effet, dans un système parfait, la taille du faisceau est approximativement proportionnelle à celle du sténopé. Donc, pour trouver la valeur de $\omega_0$, il faut estimer la valeur de l'angle de divergence du faisceau. 
 
-% Source 2 : Confocal Microscopy C Denis Semwogerere Eric R. Weeks. (Chrome Extension, je te l'enverrai quand tu vas être rendu aux sources) 
+% Source 5 : Confocal Microscopy 
+
+% Source X : https://en.wikipedia.org/wiki/Gaussian_beam
 
 \subsection{Question 4}
+La résolution latérale correspond à la capacité d'un système à distinguer les points d'un objet qui sont situés à proximité l'un de l'autres alors que le contraste, étroitement lié à la résolution, est défini comme la quantité de photons collectés à partir de l'échantillon \textcolor{red}{(Source 6)}. Les systèmes confocaux permettent d'améliorer ces deux paramètres avec l'ajout d'un diaphrame optique. Comme mentionné, l'ajout de ce sténopé permet de limiter les faisceaux lumineux, ce qui élimine les rayons en provenance des plans non-focaux. Puisque la lumière atteignant le détecteur ne provent que du plan focal de l'échantillon, le bruit créé par les rayons extérieurs est réduit. De cette manière, le flou créé par ces rayons est éliminé et la différence de lumiosité entre les structures est mieux définie, offrant ainsi une amélioration dans la résolution et dans le contraste \textcolor{red}{(Source 7)}.
 
-%TODO
+Par exemple, dans la figure \ref{3d_cells} utilisant le système confocal, il est possible d'observer, en ce qui a trait au contraste, que des différences de lumiosité entre les canaux. En effet, les détails des divers canaux, soient le rouge, le bleu et le vert, peuvent être distingués clairement les uns des autres. Cependant, dans le cas de celui qui n'utilise pas le système confocal, soit le suivant :
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.2]{xy_plane_non_confocal.png}
+  \caption{Image de la cellule sans le système confocal.}
+  \label{non-confocal}
+\end{figure}
+Les détails sont légèrement moins marqués que pour ceux de la figure \ref{3d_cells}, particulièrement dans les zones où les couleurs se chevauchent. De plus, pour l'image confocale, celle est mieux définie avec des contours plus nets autour des structures, facilitant la distinction des composantes. Ainsi, avec ces exemples, il est possible de visualiser l'augmentation de la résolution et du contraste lorsqu'un système confocal est utilisé.
 
-faire reference a la figure prostate side by side
+Bien que les systèmes confocaux font preuve de plusieurs avantages, ceux-ci comportent quelques désavantages. Un premier désagrément est la vitesse d'acquisition des données. Puisque les points sont balayés individuellement, l'acquisition des données est trop lente pour obtenir des informations sur des systèmes biologiques rapide \textcolor{red}{(Source 8)}. De plus, les microscopes confocaux n'utilisent qu'un seul photon pour exciter les fluorophores, ce qui peut résulter à plus grande dispersion de la lumière dans l'image que, par exemple, des sytèmes multiphotoniques \textcolor{red}{(Source 9)}.
+
+% Source 6 : https://www.olympus-lifescience.com/en/microscope-resource/primer/techniques/confocal/resolutionintro/
+
+% Source 7 : https://www.leica-microsystems.com/science-lab/life-science/pinhole-effect-in-confocal-microscopes/#:~:text=The%20lateral%20resolution%20at%201,30%25%20at%20pinhole%20diameter%20zero.
+
+% Source 8 : https://www.tandfonline.com/doi/full/10.2144/000112089#:~:text=A%20key%20limitation%20in%20the,information%20about%20rapid%20biological%20processes.
+
+% Source 9 : https://www.edmundoptics.ca/knowledge-center/application-notes/microscopy/confocal-microscopy/#:~:text=Compared%20to%20multiphoton%20microscopy%2C%20confocal,as%20deep%20into%20a%20sample.
 
 \section{Conclusion}
 
