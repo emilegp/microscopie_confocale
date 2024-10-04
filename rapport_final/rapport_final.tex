@@ -129,8 +129,8 @@ Polytechnique Montréal\\}
 \fancyhf{}
 \renewcommand{\headrulewidth}{1pt}
 \fancyhead[L]{\textbf{PHS2223}}
-\fancyhead[C]{titre}
-\fancyhead[R]{date}
+\fancyhead[C]{Rapport final}
+\fancyhead[R]{\today}
 \fancyfoot[R]{\thepage}
 
 \pagenumbering{arabic}
@@ -142,7 +142,7 @@ Polytechnique Montréal\\}
 
 \subsection{Estimation de la résolution}
 
-Les figures \ref{brutes 1} et \ref{brutes 2} présentent sous la forme de graphiques, les données brutes recueillies lors du laboratoire. 
+Les figures \ref{brutes 1} et \ref{brutes 2} présentent, sous la forme de graphiques, les données brutes recueillies lors du laboratoire. 
 
 % Résultats brut 
 \begin{figure}[h!]
@@ -162,7 +162,7 @@ Les figures \ref{brutes 1} et \ref{brutes 2} présentent sous la forme de graphi
 
 \end{figure}
 
-Au regard de l'allure de ces données, la fonction utilisées pour en faire un fit est une somme de fonctions gaussiennes centrées selon les positions des différents maximums d'amplitude. L'utilisation de la librairie \textit{lm.fit} de python permet de déterminer les valeurs optimales de ces courbes de tendances et de les représenter. Les figures \ref{fit 1} et \ref{fit 2} présentent sous la forme de graphiques, les fonctions de fitting obtenues pour les deux jeux de données brutes différents. 
+Au regard de l'allure de ces données, la fonction utilisées pour en faire un fit est une somme de fonctions gaussiennes centrées selon les positions des différents maximums d'amplitude. L'utilisation de la librairie \textit{lm.fit} de python permet de déterminer les valeurs optimales de ces courbes de tendances et de les représenter. Les figures \ref{fit 1} et \ref{fit 2} présentent, sous la forme de graphiques, les fonctions de fitting obtenues pour les deux jeux de données brutes différents. 
 
 \begin{figure}[h!]
     \centering
@@ -228,16 +228,14 @@ représenter le volume de quelques cellules.
 
 \subsection{Retour sur l'hypothèse}
 
-%TODO : comparaision mesure axiale entre hypothese et expérience
-Les trois hypothèses posées lors du rapport préliminaire étaient : $"$la résolution axiale augmente linéairement en fonction de la taille du sténopé$"$, $"$la résolution axiale augmente de façon quasi-linéaire en fonction de la longueur focale des lentilles$"$ et $"$la résolution reste inchangée peu importe l'espace entre les lentilles$"$. \\
+Les trois hypothèses posées lors du rapport préliminaire étaient : $"$la résolution axiale augmente linéairement en fonction de la taille du sténopé$"$, $"$la résolution axiale augmente de façon quasi-linéaire en fonction de la longueur focale des lentilles$"$ et $"$la résolution reste inchangée peu importe l'espace entre les lentilles$"$.
 
-La première de ces trois hypothèses peut être vérifiée en se basant sur les deux cas extrêmes étudiés lors du laboratoire. Dans l'un le sténopé vient contraindre la lumière incidente et dans l'autre son absence peut être interprétée comme un sténopé de diamètre suffisamment large pour ne plus être l'ouverture d'arrêt du système, laissant passer toute la lumière incidente. Les résultats obtenus et présentés dans les figures \ref{fit 1} et \ref{fit 2} valident cette hypothèse. La largeur à mi-hauteur étant plus grande sans sténopé, ou en d'autre termes : "la résolution axiale augmente linéairement en fonction de la taille du sténopé" . Néanmoins, le caractère linéaire de cette évolution n'a pas pu être explicitement représentées lors du laboratoire. L'étude de ces deux cas extrêmes ne permet en effet que de dire : la résolution augmente avec la taille du sténopé, sans pour autant en détailler le comment. D'autant plus que lorsque le sténopé n'est plus l'ouverture d'arrêt, la résolution finit par rester constante, car elle ne dépend plus que de l'alignement du reste du système. \\ 
+La première de ces trois hypothèses peut être vérifiée en se basant sur les deux cas extrêmes étudiés lors du laboratoire. Dans l'un le sténopé vient contraindre la lumière incidente et dans l'autre son absence peut être interprétée comme un sténopé de diamètre suffisamment large pour ne plus être l'ouverture d'arrêt du système, laissant passer toute la lumière incidente. Les résultats obtenus et présentés dans les figures \ref{fit 1} et \ref{fit 2} valident cette hypothèse. La largeur à mi-hauteur étant plus grande sans sténopé, ou en d'autre termes : "la résolution axiale augmente linéairement en fonction de la taille du sténopé" . Néanmoins, le caractère linéaire de cette évolution n'a pas pu être explicitement représentées lors du laboratoire. L'étude de ces deux cas extrêmes ne permet en effet que de dire : la résolution augmente avec la taille du sténopé, sans pour autant en détailler le comment. D'autant plus que lorsque le sténopé n'est plus l'ouverture d'arrêt, la résolution finit par rester constante, car elle ne dépend plus que de l'alignement du reste du système.
 
 Pour ce qui est des deux autres hypothèses, elles n'ont pas pu être explicitement validées ou réfutées lors du laboratoire. Notamment la deuxième qui pourrait être, pour certaines valeurs de distance focale, interprétée comme un système sans sténopé mais où le point observateur serait décalé. Elles auraient nécessité une étude plus explicite lors du laboratoire car elle ne reste ici que source d'interprétation et non de faits. 
 
 \subsection{Analyse des causes d'erreurs}
 
-%TODO
 Les erreurs liées aux données récoltés trouvent leur causes dans de nombreux éléments du systèmes optiques et des différents procédés d'analyse. A commencer par les incertitudes relatives aux appareils de mesure utilisés. Les figures \ref{brutes 1} et \ref{brutes 2} représentent comme présenté en partie 1 les résultats de mesures obtenues pour les deux systèmes, elles permettent aussi de mettre en évidence les erreurs relatives à chaque mesures. Erreurs liées aux échelles de mesures de la monture de translation pour les barres horizontales et celles du power-meter pour les barres verticales. Le tableau \ref{incertitudes} présente les incertitudes de chacun de ces composant optiques. 
 
 \begin{table}[H]
@@ -255,9 +253,9 @@ Les erreurs liées aux données récoltés trouvent leur causes dans de nombreux
 \label{incertitudes}
 \end{table}
 
-L'incertitude de 10 microns liée à la monture de translation est donné par le constructeur du dispositif. Dans le cas du power-meter, ces erreurs ont été calculées en prenant les valeurs maximales, minimales et moyenne des données recueillis, puis en faisant une moyenne des écarts à gauche et à droite. \\
+L'incertitude de 10 microns liée à la monture de translation est donné par le constructeur du dispositif. Dans le cas du power-meter, ces erreurs ont été calculées en prenant les valeurs maximales, minimales et moyenne des données recueillis, puis en faisant une moyenne des écarts à gauche et à droite.
 
-De plus, sur chacun des graphiques obtenus, un autre maximum d'amplitude se dessine, révélé par les courbes gaussiennes de couleur jaune. Le fait que ces deux anomalies soient présentent quelque soit le jeu de données indique une défaillance au niveau de la source de lumière du système, du laser. C'est cette défaillance qui oblige à utiliser une somme de courbe gaussienne et qui induit donc des erreurs lors de l'estimation de la résolution. De façon générale, l'utilisation de librairies comme \textit{lm.fit} induit des sources d'erreurs lors de l'étude d'un jeu de données discret. Mais le fait de devoir sommer des courbes gaussiennes en les considérant adéquates, force à relier la résolution estimée à une solution qui ne la représente que indirectement (la courbe bleu du jeu de données avec sténopé n'étant pas exactement la courbe représentative du système dans un cas idéal).\\
+De plus, sur chacun des graphiques obtenus, un autre maximum d'amplitude se dessine, révélé par les courbes gaussiennes de couleur jaune. Le fait que ces deux anomalies soient présentent quelque soit le jeu de données indique une défaillance au niveau de la source de lumière du système, du laser. C'est cette défaillance qui oblige à utiliser une somme de courbe gaussienne et qui induit donc des erreurs lors de l'estimation de la résolution. De façon générale, l'utilisation de librairies comme \textit{lm.fit} induit des sources d'erreurs lors de l'étude d'un jeu de données discret. Mais le fait de devoir sommer des courbes gaussiennes en les considérant adéquates, force à relier la résolution estimée à une solution qui ne la représente que indirectement (la courbe bleu du jeu de données avec sténopé n'étant pas exactement la courbe représentative du système dans un cas idéal).
 
 D'autres erreurs, plus pratiques, liées à l'alignement du système sont aussi à noter. Notamment lors des étapes d'alignement des back réflections. Néanmoins, le suivit en temps réel des valeurs de puissance recueillis à permit d'ajuster l'alignement du sténopé et ainsi maximiser l'amplitude du système. 
 
@@ -313,7 +311,7 @@ La résolution latérale correspond à la capacité d'un système à distinguer 
 Par exemple, dans la figure \ref{3d_cells} utilisant le système confocal, il est possible d'observer, en ce qui a trait au contraste, que des différences de lumiosité entre les canaux. En effet, les détails des divers canaux, soient le rouge, le bleu et le vert, peuvent être distingués clairement les uns des autres. Cependant, dans le cas de celui qui n'utilise pas le système confocal, soit le suivant :
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.2]{xy_plane_non_confocal.png}
+  \includegraphics[scale=0.35]{xy_plane_non_confocal.png}
   \caption{Image de la cellule sans le système confocal.}
   \label{non-confocal}
 \end{figure}
