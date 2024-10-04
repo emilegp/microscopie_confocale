@@ -232,12 +232,28 @@ représenter le volume de quelques cellules.
 \subsection{Analyse des causes d'erreurs}
 
 %TODO
+Les erreurs liées aux données récoltés trouvent leur causes dans de nombreux éléments du systèmes optiques et des différents procédés d'analyse. A commencer par les incertitudes relatives aux appareils de mesure utilisés. Les figures \ref{brutes 1} et \ref{brutes 2} représentent comme présenté en partie 1 les résultats de mesures obtenues pour les deux systèmes, elles permettent aussi de mettre en évidence les erreurs relatives à chaque mesures. Erreurs liées aux échelles de mesures de la monture de translation pour les barres horizontales et celles du power-meter pour les barres verticales. Le tableau \ref{incertitudes} présente les incertitudes de chacun de ces composant optiques. 
 
-vieux laser avec deux pics d'intensité
-mauvais alignement de base (surtout l'alignement des back reflections)
-désalignement au fur et à mesure des manipulations
-incertitudes (surtout sur le power meter)
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.8cm}|p{4.2cm}|}
+\cline{2-2}
+\multicolumn{1}{c|}{} & \textbf{Incertitude} \\
+\hline
+\textbf{Monture de translation} & 10 microns\\
+\hline
+\textbf{Power-Meter} & 2.61\\
+\hline
+\end{tabular}
+\caption{Incertitudes sur les mesures de la monture de translation et du power-meter}
+\label{incertitudes}
+\end{table}
 
+L'incertitude de 10 microns liée à la monture de translation est donné par le constructeur du dispositif. Dans le cas du power-meter, ces erreurs ont été calculées en prenant les valeurs maximales, minimales et moyenne des données recueillis, puis en faisant une moyenne des écarts à gauche et à droite. \\
+
+De plus, sur chacun des graphiques obtenus, un autre maximum d'amplitude se dessine, révélé par les courbes gaussiennes de couleur jaune. Le fait que ces deux anomalies soient présentent quelque soit le jeu de données indique une défaillance au niveau de la source de lumière du système, du laser. C'est cette défaillance qui oblige à utiliser une somme de courbe gaussienne et qui induit donc des erreurs lors de l'estimation de la résolution. De façon générale, l'utilisation de librairies comme \textit{lm.fit} induit des sources d'erreurs lors de l'étude d'un jeu de données discret. Mais le fait de devoir sommer des courbes gaussiennes en les considérant adéquates, force à relier la résolution estimée à une solution qui ne la représente que indirectement (la courbe bleu du jeu de données avec pinhole n'étant pas exactement la courbe représentative du système dans un cas idéal).\\
+
+D'autres erreurs, plus pratiques, liées à l'alignement du système sont aussi à noter. Notamment lors des étapes d'alignement des back réflections. Néanmoins, le suivit en temps réel des valeurs de puissance recueillis à permit d'ajuster l'alignement du pinhole et ainsi maximiser l'amplitude du système. 
 \subsection{Question 1}
 
 %TODO
